@@ -18,13 +18,14 @@ And If I hear anyone say "to-do list" I am just gonna snap ([citation](http://ww
 
 ### Screens
  - Dashboard - see bucket sizes at a glance, and important tasks to address
-   - Snapped View
+   - Snapped View - display buckets at top, then notifications
  - Bucket - reorder tasks on priority, move task to next bucket
    - Snapped View - list of items in current bucket
  - Add/Edit Task - provide details about a task - name, size, target date, category?
    - Snapped View - squashed edit form
    - Q: is this a popup for the bucket page? Or standalone page?
  - Reports - browse pre-defined reports (last week, current progress, etc) or customise filters on available data
+   - Snapped View - ???
  - Settings - rename buckets, configure constraints, other settings
 
 ### Domain
@@ -53,7 +54,7 @@ There may be other bits which we need to track but I think this should be enough
 
 That third class represents the events of a user moving items between buckets - this becomes the source of data for reporting.
 
-### Cool things to implement:
+### Cool things to do:
 
  - PropertyChanged.Fody - because manual INPC is silly
  - Toast/Tile notifications - task reminders
