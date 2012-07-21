@@ -6,7 +6,7 @@ using SQLite;
 using Windows.Storage;
 using Windows.UI.Core;
 
-namespace SQLiteTester.ViewModels
+namespace SQLiteTester.Models
 {
     public class SyncDatabaseViewModel : ResultViewModel
     {
@@ -25,11 +25,12 @@ namespace SQLiteTester.ViewModels
         public override async void Run()
         {
             await RunCreateTest();
+            await RunReadTest();
         }
 
         private async Task RunCreateTest()
         {
-            await Task.Factory.StartNew(async () =>
+            await Task.Factory.StartNew(() =>
             {
                 using (var db = new SQLiteConnection(DatabasePath))
                 {
@@ -37,11 +38,34 @@ namespace SQLiteTester.ViewModels
                     db.RunInTransaction(() =>
                     {
                         for (var i = 0; i < 10; i++)
-                            db.Insert(new Person { FullName = "Person " + i.ToString() });
+                            db.Insert(new Person { FullName = "Person " + i });
+                    });
+
+                    dispatcher.RunIdleAsync(o => { CreateResult = "Completed!"; });
+                }
+            });
+        }
+
+        private async Task RunReadTest()
+        {
+            await Task.Factory.StartNew(() =>
+            {
+                using (var db = new SQLiteConnection(DatabasePath))
+                {
+                    db.RunInTransaction(() => {
+                        var person1 = db.Get<Person>(f => f.FullName.EndsWith("8"));
+                        var person2 = db.Get<Person>(f => f.FullName.EndsWith("3"));
+
+                        if (person1 != null && person2 != null)
+                        {
+                            dispatcher.RunIdleAsync(o => { ReadResult = "Found both people!"; });
+                        }
+                        else
+                        {
+                            dispatcher.RunIdleAsync(o => { ReadResult = "Error!"; });
+                        }
                     });
                 }
-
-                await dispatcher.RunIdleAsync(o => { CreateResult = "Completed!"; });
             });
         }
 

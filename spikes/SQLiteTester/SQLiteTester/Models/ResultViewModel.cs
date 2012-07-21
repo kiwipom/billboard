@@ -1,7 +1,7 @@
 using GalaSoft.MvvmLight;
 using Windows.Storage;
 
-namespace SQLiteTester.ViewModels
+namespace SQLiteTester.Models
 {
     public abstract class ResultViewModel : ViewModelBase
     {

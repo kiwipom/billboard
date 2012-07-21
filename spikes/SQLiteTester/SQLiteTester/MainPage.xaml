@@ -3,7 +3,8 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:SQLiteTester="using:SQLiteTester" xmlns:ViewModels="using:SQLiteTester.Models"
+      xmlns:SQLiteTester="using:SQLiteTester"
+      xmlns:ViewModels="using:SQLiteTester.Models"
       d:DataContext="{d:DesignInstance ViewModels:MainViewModel,
                                        IsDesignTimeCreatable=False}"
       IsTabStop="false"
@@ -29,8 +30,6 @@
 
             <Grid Grid.Row="1"
                   VerticalAlignment="Stretch"
-                  d:DataContext="{d:DesignInstance SQLiteTester:DatabaseTesterViewModel,
-                                                   IsDesignTimeCreatable=False}"
                   DataContext="{Binding SyncTest}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -111,8 +110,6 @@
 
             <Grid Grid.Row="3"
                   VerticalAlignment="Stretch"
-                  d:DataContext="{d:DesignInstance SQLiteTester:DatabaseTesterViewModel,
-                                                   IsDesignTimeCreatable=False}"
                   DataContext="{Binding AsyncTest}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
