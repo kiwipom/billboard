@@ -39,7 +39,9 @@ namespace SQLiteTester.Models
 
         private void Run()
         {
+            SyncTest.Reset();
             SyncTest.Run();
+            AsyncTest.Reset();
             AsyncTest.Run();
         }
     }

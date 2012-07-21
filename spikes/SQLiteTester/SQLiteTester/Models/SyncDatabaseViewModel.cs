@@ -26,9 +26,10 @@ namespace SQLiteTester.Models
         {
             await RunCreateTest();
             await RunReadTest();
+            await RunUpdateTest();
         }
 
-        private async Task RunCreateTest()
+        async Task RunCreateTest()
         {
             await Task.Factory.StartNew(() =>
             {
@@ -41,29 +42,64 @@ namespace SQLiteTester.Models
                             db.Insert(new Person { FullName = "Person " + i });
                     });
 
-                    dispatcher.RunIdleAsync(o => { CreateResult = "Completed!"; });
+                    var count = 0;
+                    db.RunInTransaction(() =>
+                    {
+                        var table = db.Table<Person>();
+                        count = table.Count();
+                    });
+
+                    var message = count == 10
+                                ? "Completed!"
+                                : string.Format("Only inserted {0} rows!", count);
+
+                    dispatcher.RunIdleAsync(o => { CreateResult = message; });
                 }
+
+                
             });
         }
 
-        private async Task RunReadTest()
+        async Task RunReadTest()
         {
             await Task.Factory.StartNew(() =>
             {
                 using (var db = new SQLiteConnection(DatabasePath))
                 {
-                    db.RunInTransaction(() => {
-                        var person1 = db.Get<Person>(f => f.FullName.EndsWith("8"));
-                        var person2 = db.Get<Person>(f => f.FullName.EndsWith("3"));
+                   db.RunInTransaction(async () => {
+                        var person1 = db.Find<Person>(f => f.FullName.EndsWith("8"));
+                        var person2 = db.Find<Person>(f => f.FullName.EndsWith("3"));
 
-                        if (person1 != null && person2 != null)
-                        {
-                            dispatcher.RunIdleAsync(o => { ReadResult = "Found both people!"; });
-                        }
-                        else
-                        {
-                            dispatcher.RunIdleAsync(o => { ReadResult = "Error!"; });
-                        }
+                        var message = person1 != null && person2 != null
+                                           ? "Completed!"
+                                           : "Did not find both people!";
+
+                        await dispatcher.RunIdleAsync(a => { ReadResult = message; });
+                    });
+                }
+            });
+        }
+
+        async Task RunUpdateTest()
+        {
+            await Task.Factory.StartNew(() =>
+            {
+                using (var db = new SQLiteConnection(DatabasePath))
+                {
+                    db.RunInTransaction(async () =>
+                    {
+                        // run the update operation
+                        var person = db.Get<Person>(f => f.FullName.EndsWith("8"));
+                        person.OtherField = "ABCD";
+                        db.Update(person);
+
+                        // check it was persisted
+                        var updatedPerson = db.Get<Person>(f => f.FullName.EndsWith("8"));
+                        var message = updatedPerson.OtherField == "ABCD"
+                                      ? "Completed!"
+                                      : "Did not update person!";
+
+                        await dispatcher.RunIdleAsync(a => { UpdateResult = message; });
                     });
                 }
             });
@@ -76,10 +112,9 @@ namespace SQLiteTester.Models
                 var file = await StorageFile.GetFileFromPathAsync(DatabasePath);
                 await file.DeleteAsync(StorageDeleteOption.Default);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                if (Debugger.IsAttached)
-                    Debugger.Break();
+               Debug.WriteLine(ex);
             }
         }
     }
