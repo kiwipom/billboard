@@ -20,7 +20,7 @@ Note: if you are not around for this, don't worry. If it isn't a spectacular tec
 
 And if you're expecting a professional broadcasting coding session out of me, here's my reply:
 
-![](http://i.imgur.com/7jcQC.jpg)
+![](http://i.imgur.com/40zLa.jpg)
 
 I am however open to suggestions on this front.
 
