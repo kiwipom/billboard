@@ -1,14 +1,12 @@
 using System;
 using System.Diagnostics;
 using System.IO;
-using System.Threading;
 using System.Threading.Tasks;
 using SQLite;
 using Windows.Storage;
 using Windows.UI.Core;
-using Windows.UI.Xaml;
 
-namespace SQLiteTester
+namespace SQLiteTester.ViewModels
 {
     public class SyncDatabaseViewModel : ResultViewModel
     {

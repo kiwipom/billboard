@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
 using SQLite;
 using Windows.Storage;
 
-namespace SQLiteTester
+namespace SQLiteTester.ViewModels
 {
     public class AsyncDatabaseViewModel : ResultViewModel
     {

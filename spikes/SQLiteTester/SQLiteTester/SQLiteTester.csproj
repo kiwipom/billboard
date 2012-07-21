@@ -109,17 +109,17 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AsyncDatabaseViewModel.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainViewModel.cs" />
-    <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResultViewModel.cs" />
     <Compile Include="SQLite.cs" />
     <Compile Include="SQLiteAsync.cs" />
-    <Compile Include="SyncDatabaseViewModel.cs" />
+    <Compile Include="Models\AsyncDatabaseViewModel.cs" />
+    <Compile Include="Models\MainViewModel.cs" />
+    <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\ResultViewModel.cs" />
+    <Compile Include="Models\SyncDatabaseViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

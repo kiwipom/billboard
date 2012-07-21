@@ -1,4 +1,4 @@
-namespace SQLiteTester
+namespace SQLiteTester.ViewModels
 {
     public class Person
     {
