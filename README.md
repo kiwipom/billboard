@@ -10,6 +10,20 @@ I know many people are going to be interested in the code, so I'll probably just
 
 And If I hear anyone say "to-do list" I am just gonna snap ([citation](http://www.imdb.com/title/tt0112508/quotes?qt=qt0403077)).
 
+### Plan
+
+I'll probably kick this off at lunchtime AEST Sunday (GMT +10, synchronise your watches). I'll be doing some prep today on the plumbing and spike tasks so I can be productive from the get-go.
+
+Follow me on [twitter](https://twitter.com/shiftkey) or check back here for details about how to get involved - I'll post updates there before, during and after the event.
+
+Note: if you are not around for this, don't worry. If it isn't a spectacular technical failure and people enjoy it I'll try and organise some other events like it in the future.
+
+And if you're expecting a professional broadcasting coding session out of me, here's my reply:
+
+![](http://i.imgur.com/7jcQC.jpg)
+
+I am however open to suggestions on this front.
+
 ### Goals
  - keep it simple, stupid
  - provide feedback to the user and identify trends
@@ -58,10 +72,14 @@ That third class represents the events of a user moving items between buckets - 
 
  - PropertyChanged.Fody - because manual INPC is silly
  - Toast/Tile notifications - task reminders
- - Touch - can i leverage OOTB stuff or do I need to craft up something custom?
  - Dogfood the Telerik Metro controls - Date Picker, Charts, sliders etc
- - sqlite backing store - could be a fair bit of analytics to track
- - syncing between devices - how should i do that with an file-based db?
+ - syncing data between devices
  - testing - what can I show off?
+
+### Spike tasks:
+
+ - settle on a colour scheme for the app
+ - Touch - can i leverage OOTB stuff or do I need to craft up something custom?
+ - sqlite backing store - i've heard people have had issues with this
  - dogfood some side-projects - AsyncErrorHandler, HAMMER.Pants
- 
+ - Mockup screenshots (if possible)
