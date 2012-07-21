@@ -78,8 +78,15 @@ That third class represents the events of a user moving items between buckets - 
 
 ### Spike tasks:
 
+Done:
+
+- sqlite backing store - i've heard people have had issues with this
+  - have this wired up, some issues to address around repeatability of testbench
+
+
+To Do:
+
  - settle on a colour scheme for the app
  - Touch - can i leverage OOTB stuff or do I need to craft up something custom?
- - sqlite backing store - i've heard people have had issues with this
- - dogfood some side-projects - AsyncErrorHandler, HAMMER.Pants
  - Mockup screenshots (if possible)
+ - setup project template
