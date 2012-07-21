@@ -2,33 +2,194 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:SQLiteTester="using:SQLiteTester"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:SQLiteTester="using:SQLiteTester"
+      d:DataContext="{d:DesignInstance SQLiteTester:MainViewModel,
+                                       IsDesignTimeCreatable=False}"
       IsTabStop="false"
-      mc:Ignorable="d" 
-      d:DataContext="{d:DesignInstance SQLiteTester:MainViewModel, IsDesignTimeCreatable=False}">
+      mc:Ignorable="d">
 
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="Auto" />
-        </Grid.ColumnDefinitions>
+        <Grid Margin="50">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-    	<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Create" VerticalAlignment="Center" Style="{StaticResource HeaderTextStyle}" />
-    	<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Read" VerticalAlignment="Center" Style="{StaticResource HeaderTextStyle}" Grid.Row="1" />
-    	<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Update" VerticalAlignment="Center" Style="{StaticResource HeaderTextStyle}" Grid.Row="2" />
-    	<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Delete" VerticalAlignment="Center" Style="{StaticResource HeaderTextStyle}" Grid.Row="3"/>
+            <TextBlock Grid.Row="0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Style="{StaticResource HeaderTextStyle}"
+                       Text="Sync APIs"
+                       TextWrapping="Wrap" />
 
-		<TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" Text="{Binding CreateResult}" VerticalAlignment="Center" Style="{StaticResource HeaderTextStyle}" />
-    	<TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" Text="{Binding ReadResult}" VerticalAlignment="Center" Style="{StaticResource HeaderTextStyle}" Grid.Row="1" />
-    	<TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" Text="{Binding UpdateResult}" VerticalAlignment="Center" Style="{StaticResource HeaderTextStyle}" Grid.Row="2" />
-    	<TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" Text="{Binding DeleteResult}" VerticalAlignment="Center" Style="{StaticResource HeaderTextStyle}" Grid.Row="3"/>
+            <Grid Grid.Row="1"
+                  VerticalAlignment="Stretch"
+                  d:DataContext="{d:DesignInstance SQLiteTester:DatabaseTesterViewModel,
+                                                   IsDesignTimeCreatable=False}"
+                  DataContext="{Binding SyncTest}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <TextBlock HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           FontSize="48"
+                           Style="{StaticResource HeaderTextStyle}"
+                           Text="Create"
+                           TextWrapping="Wrap" />
+                <TextBlock Grid.Row="1"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           FontSize="48"
+                           Style="{StaticResource HeaderTextStyle}"
+                           Text="Read"
+                           TextWrapping="Wrap" />
+                <TextBlock Grid.Row="2"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           FontSize="48"
+                           Style="{StaticResource HeaderTextStyle}"
+                           Text="Update"
+                           TextWrapping="Wrap" />
+                <TextBlock Grid.Row="3"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           FontSize="48"
+                           Style="{StaticResource HeaderTextStyle}"
+                           Text="Delete"
+                           TextWrapping="Wrap" />
+
+                <TextBlock HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           FontSize="48"
+                           Style="{StaticResource HeaderTextStyle}"
+                           Text="{Binding CreateResult,
+                                          Mode=TwoWay}"
+                           TextWrapping="Wrap" />
+                <TextBlock Grid.Row="1"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           FontSize="48"
+                           Style="{StaticResource HeaderTextStyle}"
+                           Text="{Binding ReadResult}"
+                           TextWrapping="Wrap" />
+                <TextBlock Grid.Row="2"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           FontSize="48"
+                           Style="{StaticResource HeaderTextStyle}"
+                           Text="{Binding UpdateResult}"
+                           TextWrapping="Wrap" />
+                <TextBlock Grid.Row="3"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           FontSize="48"
+                           Style="{StaticResource HeaderTextStyle}"
+                           Text="{Binding DeleteResult}"
+                           TextWrapping="Wrap" />
+            </Grid>
+
+            <TextBlock Grid.Row="2"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Style="{StaticResource HeaderTextStyle}"
+                       Text="Async APIs"
+                       TextWrapping="Wrap" />
+
+            <Grid Grid.Row="3"
+                  VerticalAlignment="Stretch"
+                  d:DataContext="{d:DesignInstance SQLiteTester:DatabaseTesterViewModel,
+                                                   IsDesignTimeCreatable=False}"
+                  DataContext="{Binding AsyncTest}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <TextBlock HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           FontSize="48"
+                           Style="{StaticResource HeaderTextStyle}"
+                           Text="Create"
+                           TextWrapping="Wrap" />
+                <TextBlock Grid.Row="1"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           FontSize="48"
+                           Style="{StaticResource HeaderTextStyle}"
+                           Text="Read"
+                           TextWrapping="Wrap" />
+                <TextBlock Grid.Row="2"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           FontSize="48"
+                           Style="{StaticResource HeaderTextStyle}"
+                           Text="Update"
+                           TextWrapping="Wrap" />
+                <TextBlock Grid.Row="3"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           FontSize="48"
+                           Style="{StaticResource HeaderTextStyle}"
+                           Text="Delete"
+                           TextWrapping="Wrap" />
+
+                <TextBlock HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           FontSize="48"
+                           Style="{StaticResource HeaderTextStyle}"
+                           Text="{Binding CreateResult,
+                                          Mode=TwoWay}"
+                           TextWrapping="Wrap" />
+                <TextBlock Grid.Row="1"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           FontSize="48"
+                           Style="{StaticResource HeaderTextStyle}"
+                           Text="{Binding ReadResult}"
+                           TextWrapping="Wrap" />
+                <TextBlock Grid.Row="2"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           FontSize="48"
+                           Style="{StaticResource HeaderTextStyle}"
+                           Text="{Binding UpdateResult}"
+                           TextWrapping="Wrap" />
+                <TextBlock Grid.Row="3"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           FontSize="48"
+                           Style="{StaticResource HeaderTextStyle}"
+                           Text="{Binding DeleteResult}"
+                           TextWrapping="Wrap" />
+            </Grid>
+
+            <Button Grid.Row="4"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Command="{Binding RunCommand}"
+                    Content="Run"
+                    FontSize="32" />
+        </Grid>
     </Grid>
 </Page>

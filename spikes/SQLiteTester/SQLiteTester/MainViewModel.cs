@@ -1,35 +1,47 @@
-﻿using GalaSoft.MvvmLight;
+using System;
+using System.Windows.Input;
+using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 
 namespace SQLiteTester
 {
     public class MainViewModel : ViewModelBase
     {
-        string createResult;
-        public string CreateResult
+        public MainViewModel(
+            AsyncDatabaseViewModel asyncDatabaseViewModel, 
+            SyncDatabaseViewModel syncDatabaseViewModel)
         {
-            get { return createResult; }
-            set { Set(() => CreateResult, ref createResult, value); }
+            SyncTest = syncDatabaseViewModel;
+            AsyncTest = asyncDatabaseViewModel;
         }
 
-        string readResult;
-        public string ReadResult
+        AsyncDatabaseViewModel asyncTest;
+        public AsyncDatabaseViewModel AsyncTest
         {
-            get { return readResult; }
-            set { Set(() => ReadResult, ref readResult, value); }
+            get { return asyncTest; }
+            set { Set(() => AsyncTest, ref asyncTest, value); }
         }
 
-        string updateResult;
-        public string UpdateResult
+        SyncDatabaseViewModel syncTest;
+        public SyncDatabaseViewModel SyncTest
         {
-            get { return updateResult; }
-            set { Set(() => UpdateResult, ref updateResult, value); }
+            get { return syncTest; }
+            set { Set(() => SyncTest, ref syncTest, value); }
         }
 
-        string deleteResult;
-        public string DeleteResult
+        ICommand runCommand;
+        public ICommand RunCommand
         {
-            get { return deleteResult; }
-            set { Set(() => DeleteResult, ref deleteResult, value); }
+            get
+            {
+                return runCommand ?? (runCommand = new RelayCommand(Run));
+            }
+        }
+
+        private void Run()
+        {
+            SyncTest.Run();
+            AsyncTest.Run();
         }
     }
 }
