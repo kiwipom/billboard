@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using Billboard.Logic;
+using Billboard.Models;
+using GalaSoft.MvvmLight.Messaging;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -12,9 +16,12 @@ namespace Billboard.Modules.Dashboard
             InitializeComponent();
         }
 
-        protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
+        protected override async void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
-            // TODO: Create an appropriate data model for your problem domain to replace the sample data
+            var repository = new BucketRepository(DatabaseConfiguration.Current);
+            var buckets = await repository.GetAll();
+            var viewModel = new DashboardViewModel(buckets, Messenger.Default);
+            DataContext = viewModel;
         }
 
         void ItemViewItemClick(object sender, ItemClickEventArgs e)

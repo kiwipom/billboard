@@ -14,5 +14,8 @@ namespace Billboard.Logic
         {
             get { return Path.Combine(LocalFolder, "billboard.sqlite"); }
         }
+
+        static DatabaseConfiguration current;
+        public static DatabaseConfiguration Current { get { return current ?? (current = new DatabaseConfiguration()); } }
     }
 }

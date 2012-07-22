@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Billboard.Common;
 using Billboard.Logic;
 using Billboard.Modules.Dashboard;
@@ -35,15 +36,13 @@ namespace Billboard
                 await SuspensionManager.RestoreAsync();
             }
 
-            ApplicationData.Current.LocalSettings.Values.Clear();
+            await DebuggingCleanup();
 
-            var configuration = new DatabaseConfiguration();
-
-            var bucketRepository= new BucketRepository(configuration);
-            var userTaskRepository = new UserTaskRepository(configuration);
+            var bucketRepository = new BucketRepository(DatabaseConfiguration.Current);
+            var userTaskRepository = new UserTaskRepository(DatabaseConfiguration.Current);
             var session = new SessionInitializer(bucketRepository, userTaskRepository);
 
-            session.Initialize();
+            await session.Initialize();
 
             if (rootFrame.Content == null)
             {
@@ -58,6 +57,20 @@ namespace Billboard
             // Place the frame in the current Window and ensure that it is active
             Window.Current.Content = rootFrame;
             Window.Current.Activate();
+        }
+
+        private static async Task DebuggingCleanup()
+        {
+            ApplicationData.Current.LocalSettings.Values.Clear();
+
+            try
+            {
+                var file = await StorageFile.GetFileFromPathAsync(DatabaseConfiguration.Current.FilePath);
+                await file.DeleteAsync(StorageDeleteOption.PermanentDelete);
+            }
+            catch (Exception)
+            {
+            }
         }
 
         private async void OnSuspending(object sender, SuspendingEventArgs e)

@@ -1,4 +1,5 @@
-﻿using Billboard.Models;
+﻿using System.Threading.Tasks;
+using Billboard.Models;
 using Windows.Storage;
 
 namespace Billboard.Logic
@@ -14,7 +15,7 @@ namespace Billboard.Logic
             this.userTaskRepository = userTaskRepository;
         }
 
-        public async void Initialize()
+        public async Task Initialize()
         {
             var o = ApplicationData.Current.LocalSettings.Values["Initialized"];
             if (o != null && (bool) o)
