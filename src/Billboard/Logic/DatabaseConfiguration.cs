@@ -1,7 +1,18 @@
+using System.IO;
+using Windows.Storage;
+
 namespace Billboard.Logic
 {
     public class DatabaseConfiguration
     {
-        public string Path { get; set; }
+        private static string LocalFolder
+        {
+            get { return ApplicationData.Current.LocalFolder.Path; }
+        }
+
+        public string FilePath
+        {
+            get { return Path.Combine(LocalFolder, "billboard.sqlite"); }
+        }
     }
 }

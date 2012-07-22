@@ -13,11 +13,11 @@ namespace Billboard.Logic
             this.configuration = configuration;
         }
 
-        public async void Insert(Bucket bucket)
+        public async Task Insert(Bucket bucket)
         {
             await Task.Factory.StartNew(() =>
             {
-                using (var db = new SQLiteConnection(configuration.Path))
+                using (var db = new SQLiteConnection(configuration.FilePath))
                 {
                     db.RunInTransaction(() =>
                     {

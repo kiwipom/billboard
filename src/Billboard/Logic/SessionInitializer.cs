@@ -1,4 +1,5 @@
 ﻿using Billboard.Models;
+using Windows.Storage;
 
 namespace Billboard.Logic
 {
@@ -13,15 +14,23 @@ namespace Billboard.Logic
             this.userTaskRepository = userTaskRepository;
         }
 
-        public void Initialize()
+        public async void Initialize()
         {
-            bucketRepository.Insert(new Bucket { Description = "Backlog", Order = 1 });
-            bucketRepository.Insert(new Bucket { Description = "Doing", Order = 2 });
-            bucketRepository.Insert(new Bucket { Description = "Done", Order = 3 });
-            
-            userTaskRepository.Insert(new UserTask { Title = "First task" });
-            userTaskRepository.Insert(new UserTask { Title = "Second task" });
-            userTaskRepository.Insert(new UserTask { Title = "Third task" });
+            var o = ApplicationData.Current.LocalSettings.Values["Initialized"];
+            if (o != null && (bool) o)
+            {
+                return;
+            }
+
+            await bucketRepository.Insert(new Bucket { Description = "Backlog", Order = 1 });
+            await bucketRepository.Insert(new Bucket { Description = "Doing", Order = 2 });
+            await bucketRepository.Insert(new Bucket { Description = "Done", Order = 3 });
+
+            await userTaskRepository.Insert(new UserTask { Title = "First task" });
+            await userTaskRepository.Insert(new UserTask { Title = "Second task" });
+            await userTaskRepository.Insert(new UserTask { Title = "Third task" });
+
+            ApplicationData.Current.LocalSettings.Values["Initialized"] = true;
         }
     }
 }

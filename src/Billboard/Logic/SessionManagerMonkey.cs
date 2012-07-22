@@ -22,9 +22,9 @@ namespace Billboard.Logic
             messenger.Register<CreateUserTaskMessage>(this, HandleUserTaskCreatedMessage);
         }
 
-        private void HandleUserTaskCreatedMessage(CreateUserTaskMessage obj)
+        private async void HandleUserTaskCreatedMessage(CreateUserTaskMessage obj)
         {
-            taskRepository.Insert(obj.Task);
+            await taskRepository.Insert(obj.Task);
             messenger.Send(new CreatedUserTaskMessage(obj.Task));
         }
     }

@@ -4,6 +4,7 @@ using Billboard.Logic;
 using Billboard.Modules.Dashboard;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -33,6 +34,8 @@ namespace Billboard
             {
                 await SuspensionManager.RestoreAsync();
             }
+
+            ApplicationData.Current.LocalSettings.Values.Clear();
 
             var configuration = new DatabaseConfiguration();
 
