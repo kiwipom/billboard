@@ -1,7 +1,8 @@
-﻿<Application x:Class="Billboard.App"
+﻿<Application
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:Common="using:Billboard.Common">
+             xmlns:Common="using:Billboard.Common" xmlns:Controls="using:Telerik.UI.Xaml.Controls" x:Class="Billboard.App"
+             >
 
     <Application.Resources>
         <ResourceDictionary>
@@ -98,17 +99,13 @@
                                FontSize="14.667"
                                Text="{Binding Title}"
                                TextWrapping="Wrap"
-                               Visibility="{Binding Text,
-                                                    Converter={StaticResource TextToVisibilityConverter},
-                                                    RelativeSource={RelativeSource Mode=Self}}" />
+                               Visibility="{Binding Text, Converter={StaticResource TextToVisibilityConverter}, RelativeSource={RelativeSource Mode=Self}}" />
                     <TextBlock VerticalAlignment="Top"
                                FontFamily="Segoe UI Light"
                                FontSize="9.333"
                                Text="{Binding Description}"
                                TextWrapping="Wrap"
-                               Visibility="{Binding Text,
-                                                    Converter={StaticResource TextToVisibilityConverter},
-                                                    RelativeSource={RelativeSource Mode=Self}}" />
+                               Visibility="{Binding Text, Converter={StaticResource TextToVisibilityConverter}, RelativeSource={RelativeSource Mode=Self}}" />
                 </StackPanel>
             </DataTemplate>
             <Style x:Key="AddButtonNoLabelStyle"
@@ -116,7 +113,7 @@
                    TargetType="Button">
                 <Setter Property="AutomationProperties.AutomationId" Value="AddAppBarButton" />
                 <Setter Property="AutomationProperties.Name" Value="Add" />
-                <Setter Property="Content" Value="" />
+                <Setter Property="Content" Value="&#xE109;" />
             </Style>
             
 			<SolidColorBrush x:Key="ForegroundDarkTextBrush" Color="#FF1E2F3A" />

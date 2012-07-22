@@ -1,0 +1,433 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Telerik.UI.Xaml.Controls"
+    xmlns:localDateTimePicker="using:Telerik.UI.Xaml.Controls.Input">
+    
+    <SolidColorBrush x:Key="HighlightBrush" Color="#FF006AC1"/>
+    
+    <Style TargetType="local:DateTimeList">
+        <Setter Property="IsTabStop" Value="False"/>
+        <Setter Property="IsCentered" Value="True"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="ItemTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Grid VerticalAlignment="Stretch">
+                        <TextBlock Text="{Binding HeaderText}" 
+                                   FontFamily="Segoe UI Semilight" 
+                                   FontSize="26.667" Margin="5,0,0,16"
+                                   VerticalAlignment="Bottom"/>
+                        <TextBlock Text="{Binding ContentText}" Opacity=".6"
+                                   FontFamily="Segoe UI" FontSize="12" Margin="5,0,0,4"
+                                   VerticalAlignment="Bottom"/>
+                    </Grid>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:DateTimeList">
+                    <Border Background="{TemplateBinding Background}">
+                        <local:LoopingPanel x:Name="PART_Panel"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style TargetType="Button" x:Key="SelectorButtonStyle">
+        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="Background" Value="#B2B6B6B6" />
+        <Setter Property="Foreground" Value="#FF212121"/>
+        <Setter Property="Padding" Value="12,4,12,4" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="FontFamily" Value="{StaticResource ContentControlThemeFontFamily}" />
+        <Setter Property="FontSize" Value="{StaticResource ControlContentThemeFontSize}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Border"
+                                                                       Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="#FF006AC1"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter"
+                                                                       Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="#FFFFFFFF"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Focused">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Border"
+                                                                       Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="#FF006AC1"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter"
+                                                                       Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="#FFFFFFFF"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Border x:Name="Border"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Margin="3">
+                            <ContentPresenter x:Name="ContentPresenter"
+                                              Content="{TemplateBinding Content}"
+                                              ContentTransitions="{TemplateBinding ContentTransitions}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              Margin="{TemplateBinding Padding}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style TargetType="localDateTimePicker:DateTimePickerButton">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="Foreground" Value="{StaticResource ComboBoxForegroundThemeBrush}"/>
+        <Setter Property="Background" Value="{StaticResource ComboBoxBackgroundThemeBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource ComboBoxBorderThemeBrush}"/>
+        <Setter Property="Padding" Value="8,0,8,0"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="FontFamily" Value="{StaticResource ContentControlThemeFontFamily}" />
+        <Setter Property="FontSize" Value="{StaticResource ControlContentThemeFontSize}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="32"/>
+                        </Grid.ColumnDefinitions>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="PointerOver">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Background"
+                                                                       Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ComboBoxPointerOverBackgroundThemeBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Background"
+                                                                       Storyboard.TargetProperty="BorderBrush">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ComboBoxPointerOverBorderThemeBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Highlight"
+                                                                       Storyboard.TargetProperty="Fill">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource HighlightBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Background"
+                                                                       Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ComboBoxPressedBackgroundThemeBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Background"
+                                                                       Storyboard.TargetProperty="BorderBrush">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ComboBoxPressedBorderThemeBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter"
+                                                                       Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ComboBoxPressedForegroundThemeBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimation Storyboard.TargetName="PressedBackground"
+                                                         Storyboard.TargetProperty="Opacity"
+                                                         To="1"
+                                                         Duration="0" />
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="DropDownGlyph"
+                                                                       Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ComboBoxArrowPressedForegroundThemeBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Background"
+                                                                       Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ComboBoxDisabledBackgroundThemeBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Background"
+                                                                       Storyboard.TargetProperty="BorderBrush">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ComboBoxDisabledBorderThemeBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter"
+                                                                       Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ComboBoxDisabledForegroundThemeBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="DropDownGlyph"
+                                                                       Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ComboBoxArrowDisabledForegroundThemeBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualState x:Name="Focused">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="HighlightBackground"
+                                                         Storyboard.TargetProperty="Opacity"
+                                                         To="1"
+                                                         Duration="0" />
+                                        <DoubleAnimation Storyboard.TargetName="Highlight"
+                                                         Storyboard.TargetProperty="Opacity"
+                                                         To="1"
+                                                         Duration="0" />
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter"
+                                                                       Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ComboBoxFocusedForegroundThemeBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="FocusedPressed">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter"
+                                                                       Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ComboBoxPressedForegroundThemeBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Highlight"
+                                                                       Storyboard.TargetProperty="Fill">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ComboBoxPressedHighlightThemeBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Unfocused" />
+                                <VisualState x:Name="PointerFocused" />
+                                <VisualState x:Name="FocusedDropDown">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PopupBorder"
+                                                                       Storyboard.TargetProperty="Visibility"
+                                                                       Duration="0">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Border x:Name="Background"
+                                Grid.ColumnSpan="2"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}" />
+                        <Rectangle x:Name="PressedBackground"
+                                   Fill="{StaticResource ComboBoxPressedHighlightThemeBrush}"
+                                   Margin="{TemplateBinding BorderThickness}"
+                                   Opacity="0"/>
+                        <Border x:Name="HighlightBackground"
+                                Grid.ColumnSpan="2"
+                                Background="{StaticResource ComboBoxFocusedBackgroundThemeBrush}"
+                                BorderBrush="{StaticResource ComboBoxFocusedBorderThemeBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Opacity="0" />
+                        <Rectangle x:Name="Highlight"
+                                   Fill="{StaticResource HighlightBrush}"
+                                   Margin="{TemplateBinding BorderThickness}"
+                                   Opacity="0" />
+                        <ContentPresenter x:Name="ContentPresenter" Content="{TemplateBinding Content}" 
+                                          HorizontalAlignment="Left" VerticalAlignment="Center" Margin="{TemplateBinding Padding}"/>
+                        <TextBlock x:Name="DropDownGlyph" Text="&#57361;" Grid.Column="1"
+                                    IsHitTestVisible="False" Margin="0,0,6,4"
+                                    Foreground="{StaticResource ComboBoxArrowForegroundThemeBrush}"
+                                    FontWeight="Bold" FontSize="{StaticResource ComboBoxArrowThemeFontSize}"
+                                    FontFamily="{StaticResource SymbolThemeFontFamily}" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style TargetType="local:DateTimePicker" x:Key="BaseDateTimePickerStyle">
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="IsTabStop" Value="False"/>
+        <Setter Property="SelectorBackgroundStyle">
+            <Setter.Value>
+                <Style TargetType="Border">
+                    <Setter Property="Background" Value="White"/>
+                    <Setter Property="Padding" Value="5,0,5,0"/>
+                    <Setter Property="BorderBrush" Value="#808080"/>
+                    <Setter Property="BorderThickness" Value="2"/>
+                    <Setter Property="Transitions">
+                        <Setter.Value>
+                            <TransitionCollection>
+                                <PopupThemeTransition/>
+                            </TransitionCollection>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="SelectorHeaderTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" FontFamily="Segoe UI Semilight" FontSize="26.667" Foreground="#FF000000" Margin="5,20,0,10"/>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="HeaderStyle">
+            <Setter.Value>
+                <Style TargetType="ContentControl">
+                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    <Setter Property="VerticalAlignment" Value="Stretch"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+                    <Setter Property="Margin" Value="0 0 0 4"/>
+                    <Setter Property="FontSize" Value="{StaticResource ControlContentThemeFontSize}"/>
+                    <Setter Property="Foreground" Value="{StaticResource ApplicationSecondaryForegroundThemeBrush}"/>
+                </Style>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style TargetType="local:RadDatePicker" BasedOn="{StaticResource BaseDateTimePickerStyle}">
+        <Setter Property="SelectorHeader" Value="Select Date"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:RadDatePicker">
+                    <Grid Background="{TemplateBinding Background}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <ContentControl Content="{TemplateBinding Header}" ContentTemplate="{TemplateBinding HeaderTemplate}" Style="{TemplateBinding HeaderStyle}"/>
+                        <localDateTimePicker:DateTimePickerButton x:Name="PART_PickerButton" 
+                                                                  Grid.Row="1"
+                                                                  Style="{TemplateBinding PickerButtonStyle}"/>
+                        <Popup x:Name="PART_Popup" IsOpen="{TemplateBinding IsOpen}">
+                            <Border x:Name="PART_SelectorLayoutRoot"
+                                    Style="{TemplateBinding SelectorBackgroundStyle}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <ContentPresenter x:Name="PART_SelectorHeader"
+                                                      Content="{TemplateBinding SelectorHeader}"
+                                                      ContentTemplate="{TemplateBinding SelectorHeaderTemplate}"/>
+                                    <Grid HorizontalAlignment="Center" Grid.Row="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <local:DateTimeList x:Name="PART_MonthList" ComponentType="Month"
+                                                            ItemWidth="{TemplateBinding ItemLength}" 
+                                                            ItemHeight="{TemplateBinding ItemLength}" 
+                                                            ItemSpacing="{TemplateBinding ItemSpacing}"
+                                                            ItemTemplateSelector="{TemplateBinding ItemTemplateSelector}"/>
+                                        <local:DateTimeList x:Name="PART_DayList" ComponentType="Day" Grid.Column="1"
+                                                            ItemWidth="{TemplateBinding ItemLength}" 
+                                                            ItemHeight="{TemplateBinding ItemLength}" 
+                                                            ItemSpacing="{TemplateBinding ItemSpacing}"
+                                                            ItemTemplateSelector="{TemplateBinding ItemTemplateSelector}"/>
+                                        <local:DateTimeList x:Name="PART_YearList" ComponentType="Year" Grid.Column="2"
+                                                            ItemWidth="{TemplateBinding ItemLength}" 
+                                                            ItemHeight="{TemplateBinding ItemLength}" 
+                                                            ItemSpacing="{TemplateBinding ItemSpacing}"
+                                                            ItemTemplateSelector="{TemplateBinding ItemTemplateSelector}"/>
+                                    </Grid>
+                                    <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" x:Name="PART_SelectorButtonsPanel" Margin="0,10,2,0">
+                                        <Button Content="OK" x:Name="PART_SelectorOKButton" Width="90" Style="{StaticResource SelectorButtonStyle}"/>
+                                        <Button Content="Cancel" x:Name="PART_SelectorCancelButton" Width="90" Style="{StaticResource SelectorButtonStyle}"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                        </Popup>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style TargetType="local:RadTimePicker" BasedOn="{StaticResource BaseDateTimePickerStyle}">
+        <Setter Property="SelectorHeader" Value="Select Time"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:RadTimePicker">
+                    <Grid Background="{TemplateBinding Background}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <ContentControl Content="{TemplateBinding Header}" ContentTemplate="{TemplateBinding HeaderTemplate}" Style="{TemplateBinding HeaderStyle}"/>
+                        <localDateTimePicker:DateTimePickerButton x:Name="PART_PickerButton" Grid.Row="1"
+                                                                  Style="{TemplateBinding PickerButtonStyle}"/>
+                        <Popup x:Name="PART_Popup" IsOpen="{TemplateBinding IsOpen}">
+                            <Border x:Name="PART_SelectorLayoutRoot" 
+                                    Style="{TemplateBinding SelectorBackgroundStyle}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <ContentPresenter x:Name="PART_SelectorHeader"
+                                                      Content="{TemplateBinding SelectorHeader}"
+                                                      ContentTemplate="{TemplateBinding SelectorHeaderTemplate}"/>
+                                    <Grid HorizontalAlignment="Center" Grid.Row="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <local:DateTimeList x:Name="PART_HourList" ComponentType="Hour"
+                                                            ItemWidth="{TemplateBinding ItemLength}" 
+                                                            ItemHeight="{TemplateBinding ItemLength}" 
+                                                            ItemSpacing="{TemplateBinding ItemSpacing}"
+                                                            ItemTemplateSelector="{TemplateBinding ItemTemplateSelector}"/>
+                                        <local:DateTimeList x:Name="PART_MinuteList" ComponentType="Minute" Grid.Column="1"
+                                                            ItemWidth="{TemplateBinding ItemLength}" 
+                                                            ItemHeight="{TemplateBinding ItemLength}" 
+                                                            ItemSpacing="{TemplateBinding ItemSpacing}"
+                                                            ItemTemplateSelector="{TemplateBinding ItemTemplateSelector}"/>
+                                        <local:DateTimeList x:Name="PART_AMPMList" ComponentType="AMPM" Grid.Column="2"
+                                                            ItemWidth="{TemplateBinding ItemLength}" 
+                                                            ItemHeight="{TemplateBinding ItemLength}" 
+                                                            ItemSpacing="{TemplateBinding ItemSpacing}"
+                                                            ItemTemplateSelector="{TemplateBinding ItemTemplateSelector}"/>
+                                    </Grid>
+                                    <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" x:Name="PART_SelectorButtonsPanel" Margin="0,10,2,0">
+                                        <Button Content="OK" x:Name="PART_SelectorOKButton" Width="90" Style="{StaticResource SelectorButtonStyle}"/>
+                                        <Button Content="Cancel" x:Name="PART_SelectorCancelButton" Width="90" Style="{StaticResource SelectorButtonStyle}"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                        </Popup>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
+
