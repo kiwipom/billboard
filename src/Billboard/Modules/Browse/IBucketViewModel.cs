@@ -1,13 +1,12 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using Billboard.Models;
-using BucketModel = Billboard.Models.Bucket;
 
-namespace Billboard.Modules.Bucket
+namespace Billboard.Modules.Browse
 {
     public interface IBucketViewModel : INotifyPropertyChanged
     {
-        BucketModel Bucket { get; set; }
+        Bucket Bucket { get; set; }
         
         ObservableCollection<UserTask> Tasks { get; }
     }

@@ -2,11 +2,11 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using Billboard.Models;
 
-namespace Billboard.Modules.Bucket
+namespace Billboard.Modules.Browse
 {
     public class BucketViewModel : IBucketViewModel
     {
-        public Models.Bucket Bucket { get; set; }
+        public Bucket Bucket { get; set; }
 
         public ObservableCollection<UserTask> Tasks { get; private set; }
 

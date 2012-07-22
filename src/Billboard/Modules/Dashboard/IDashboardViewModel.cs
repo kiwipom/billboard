@@ -1,11 +1,12 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using Billboard.Models;
 
 namespace Billboard.Modules.Dashboard
 {
     public interface IDashboardViewModel : INotifyPropertyChanged
     {
-        ObservableCollection<Models.Bucket> Buckets { get; }
+        ObservableCollection<Bucket> Buckets { get; }
 
         INewTaskViewModel NewTask { get; }
     }

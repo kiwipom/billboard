@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Windows.UI.Xaml.Controls;
 
-namespace Billboard.Modules.Bucket
+namespace Billboard.Modules.Browse
 {
     public sealed partial class BucketView
     {
