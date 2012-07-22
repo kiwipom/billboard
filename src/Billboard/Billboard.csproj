@@ -106,7 +106,7 @@
     <Compile Include="Common\IntToVisibilityConverter.cs" />
     <Compile Include="Common\TextToVisibilityConverter.cs" />
     <Compile Include="Modules\Bucket\BucketViewModel.cs" />
-    <Compile Include="Modules\Bucket\DesignBucketViewModel.cs" />
+    <Compile Include="Modules\Bucket\Design\DesignBucketViewModel.cs" />
     <Compile Include="Modules\Bucket\IBucketViewModel.cs" />
     <Compile Include="Modules\Dashboard\DashboardView.xaml.cs">
       <DependentUpon>DashboardView.xaml</DependentUpon>
@@ -118,8 +118,8 @@
     <Compile Include="Models\UserTask.cs" />
     <Compile Include="Models\UserTaskEvent.cs" />
     <Compile Include="Modules\Dashboard\DashboardViewModel.cs" />
-    <Compile Include="Modules\Dashboard\DesignDashboardViewModel.cs" />
-    <Compile Include="Modules\Dashboard\DesignNewTaskViewModel.cs" />
+    <Compile Include="Modules\Dashboard\Design\DesignDashboardViewModel.cs" />
+    <Compile Include="Modules\Dashboard\Design\DesignNewTaskViewModel.cs" />
     <Compile Include="Modules\Dashboard\IDashboardViewModel.cs" />
     <Compile Include="Modules\Dashboard\INewTaskViewModel.cs" />
     <Compile Include="Modules\Dashboard\NewTaskViewModel.cs" />

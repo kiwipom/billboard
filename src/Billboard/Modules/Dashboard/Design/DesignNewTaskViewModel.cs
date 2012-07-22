@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel;
 
-namespace Billboard.Modules.Dashboard
+namespace Billboard.Modules.Dashboard.Design
 {
     public class DesignNewTaskViewModel : INewTaskViewModel
     {

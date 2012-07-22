@@ -2,7 +2,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using Billboard.Models;
 
-namespace Billboard.Modules.Dashboard
+namespace Billboard.Modules.Dashboard.Design
 {
     public class DesignDashboardViewModel : IDashboardViewModel
     {

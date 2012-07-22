@@ -1,9 +1,8 @@
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using Billboard.Models;
 
-namespace Billboard.Modules.Bucket
+namespace Billboard.Modules.Bucket.Design
 {
     public class DesignBucketViewModel : IBucketViewModel
     {

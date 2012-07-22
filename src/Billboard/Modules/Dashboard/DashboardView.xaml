@@ -1,14 +1,15 @@
 ﻿<common:LayoutAwarePage
     x:Name="pageRoot"
     x:Class="Billboard.Modules.Dashboard.DashboardView"
-    d:DataContext="{d:DesignInstance Type=Dashboard:DesignDashboardViewModel, IsDesignTimeCreatable=True}"
+    d:DataContext="{d:DesignInstance Type=Design:DesignDashboardViewModel, IsDesignTimeCreatable=True}"
     IsTabStop="false"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:common="using:Billboard.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:Dashboard="using:Billboard.Modules.Dashboard" mc:Ignorable="d">
+    xmlns:Dashboard="using:Billboard.Modules.Dashboard" xmlns:Design="using:Billboard.Modules.Dashboard.Design"
+    mc:Ignorable="d">
 
     <common:LayoutAwarePage.Resources>
         <common:IntToVisibilityConverter x:Key="IntToVisibilityConverter"/>
@@ -16,7 +17,7 @@
             x:Name="groupedItemsViewSource"
             Source="{Binding Buckets}"
             IsSourceGrouped="false"
-            d:Source="{Binding Buckets, Source={d:DesignInstance IsDesignTimeCreatable=True, Type=Dashboard:DesignDashboardViewModel}}" />
+            d:Source="{Binding Buckets, Source={d:DesignInstance IsDesignTimeCreatable=True, Type=Design:DesignDashboardViewModel}}" />
         <DataTemplate x:Key="BucketDashboardItemTemplate">
             <Grid HorizontalAlignment="Left" Width="250" Height="549.718" Background="#FF5687A6">
                 <Grid>
