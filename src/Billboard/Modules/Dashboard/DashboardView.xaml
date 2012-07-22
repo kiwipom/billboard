@@ -5,6 +5,7 @@
                         xmlns:Controls="using:Telerik.UI.Xaml.Controls"
                         xmlns:Converters="using:Billboard.Converters"
                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                        xmlns:Dashboard="using:Billboard.Modules.Dashboard"
                         xmlns:Design="using:Billboard.Modules.Dashboard.Design"
                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                         x:Name="pageRoot"
@@ -578,74 +579,54 @@
                       ZoomMode="Disabled">
             <Grid>
                 <Grid.ColumnDefinitions>
-				    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" MinWidth="120" />
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
-                <StackPanel
-            		Width="640"
-            		Margin="120,40.5,0,90.5"
-            		HorizontalAlignment="Left"
-            		VerticalAlignment="Center">
-            		<Grid Height="356"
-            			Margin="0,0,0,11"
-            			Background="#FF5788A7">
-            			<TextBlock HorizontalAlignment="Center"
-            				VerticalAlignment="Center"
-            				FontSize="64"
-            				Text="welcome message"
-            				TextWrapping="Wrap" />
-            		</Grid>
-            		<Grid Height="180" Background="{StaticResource ForegroundDarkTextBrush}" Width="300" HorizontalAlignment="Right">
-            			<TextBlock HorizontalAlignment="Center"
-            				VerticalAlignment="Center"
-            				FontSize="64"
-            				Text="dismiss"
-            				TextWrapping="Wrap" />
-            		</Grid>
-            	</StackPanel>
+                <Dashboard:WelcomeControl x:Name="Welcome" />
 
-            	<GridView x:Name="itemGridView"
-            		AutomationProperties.AutomationId="ItemGridView"
-            		AutomationProperties.Name="Buckets"
-            		IsItemClickEnabled="False"
-            		ItemContainerStyle="{StaticResource DashboardGridViewItemStyle}"
-            		ItemsSource="{Binding Source={StaticResource groupedItemsViewSource}}"
-            		ItemTemplate="{StaticResource BucketDashboardItemTemplate}"
-            		Padding="7,0,40,46"
-            		SelectionMode="None"
-            		Style="{StaticResource DashboardGridViewStyle}" Grid.Column="1">
+                <GridView x:Name="itemGridView"
+                          Grid.Column="1"
+                          AutomationProperties.AutomationId="ItemGridView"
+                          AutomationProperties.Name="Buckets"
+                          IsItemClickEnabled="False"
+                          ItemContainerStyle="{StaticResource DashboardGridViewItemStyle}"
+                          ItemsSource="{Binding Source={StaticResource groupedItemsViewSource}}"
+                          ItemTemplate="{StaticResource BucketDashboardItemTemplate}"
+                          Padding="7,0,40,46"
+                          SelectionMode="None"
+                          Style="{StaticResource DashboardGridViewStyle}">
 
-            		<GridView.ItemsPanel>
-            			<ItemsPanelTemplate>
-            				<VirtualizingStackPanel Orientation="Horizontal" />
-            			</ItemsPanelTemplate>
-            		</GridView.ItemsPanel>
+                    <GridView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </GridView.ItemsPanel>
 
-            	</GridView>
-            	<StackPanel
-            		Width="719"
-            		Margin="12,-50,120,0"
-            		HorizontalAlignment="Left"
-            		VerticalAlignment="Center" Grid.Column="2">
-            		<Grid Height="356"
-            			Margin="0,0,0,11"
-            			Background="#FF5788A7">
-            			<TextBlock HorizontalAlignment="Center"
-            				VerticalAlignment="Center"
-            				FontSize="96"
-            				Text="placeholder"
-            				TextWrapping="Wrap" />
-            		</Grid>
-            		<Grid Height="180" Background="{StaticResource ForegroundDarkTextBrush}">
-            			<TextBlock HorizontalAlignment="Center"
-            				VerticalAlignment="Center"
-            				FontSize="64"
-            				Text="placeholder"
-            				TextWrapping="Wrap" />
-            		</Grid>
-            	</StackPanel>
+                </GridView>
+                <StackPanel Grid.Column="2"
+                            Width="719"
+                            Margin="12,-50,120,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center">
+                    <Grid Height="356"
+                          Margin="0,0,0,11"
+                          Background="#FF5788A7">
+                        <TextBlock HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   FontSize="96"
+                                   Text="placeholder"
+                                   TextWrapping="Wrap" />
+                    </Grid>
+                    <Grid Height="180" Background="{StaticResource ForegroundDarkTextBrush}">
+                        <TextBlock HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   FontSize="64"
+                                   Text="placeholder"
+                                   TextWrapping="Wrap" />
+                    </Grid>
+                </StackPanel>
 
             </Grid>
 
