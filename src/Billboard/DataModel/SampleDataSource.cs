@@ -134,7 +134,7 @@ namespace Billboard.Data
         {
             get { return this._items; }
         }
-        
+
         public IEnumerable<SampleDataItem> TopItems
         {
             // Provides a subset of the full items collection to bind to from a GroupedItemsPage
@@ -164,7 +164,7 @@ namespace Billboard.Data
         public static IEnumerable<Bucket> GetGroups(string uniqueId)
         {
             if (!uniqueId.Equals("AllGroups")) throw new ArgumentException("Only 'AllGroups' is supported as a collection of groups");
-            
+
             return _sampleDataSource.AllGroups;
         }
 
@@ -186,7 +186,21 @@ namespace Billboard.Data
 
         public SampleDataSource()
         {
-           
+            var toDoBucket = new Bucket { Description = "To Do" };
+            toDoBucket.Tasks.Add(new UserTask { Title = "Buy Milk" });
+            toDoBucket.Tasks.Add(new UserTask { Title = "Buy Eggs" });
+            toDoBucket.Tasks.Add(new UserTask { Title = "Walk the dog" });
+            AllGroups.Add(toDoBucket);
+
+            var doingBucket = new Bucket { Description = "Doing" };
+            AllGroups.Add(doingBucket);
+
+            var doneBucket = new Bucket { Description = "Done" };
+            doneBucket.Tasks.Add(new UserTask { Title = "Foo" });
+            doneBucket.Tasks.Add(new UserTask { Title = "Bar" });
+            doneBucket.Tasks.Add(new UserTask { Title = "Baz" });
+
+            AllGroups.Add(doneBucket);
         }
     }
 }
