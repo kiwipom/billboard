@@ -11,7 +11,7 @@
     xmlns:Dashboard="using:Billboard.Modules.Dashboard" mc:Ignorable="d">
 
     <common:LayoutAwarePage.Resources>
-    	<common:IntToVisibilityConverter x:Key="IntToVisibilityConverter"/>
+        <common:IntToVisibilityConverter x:Key="IntToVisibilityConverter"/>
         <CollectionViewSource
             x:Name="groupedItemsViewSource"
             Source="{Binding Buckets}"
@@ -20,28 +20,28 @@
         <DataTemplate x:Key="BucketDashboardItemTemplate">
             <Grid HorizontalAlignment="Left" Width="250" Height="549.718" Background="#FF5687A6">
                 <Grid>
-            		<ListBox HorizontalAlignment="Left" VerticalAlignment="Top" Height="449.723" ItemsSource="{Binding Tasks}" Style="{StaticResource DashboardTaskListboxTemplate}" ItemTemplate="{StaticResource DashboardTaskListItemTemplate}" Background="#CC5687A6" Margin="0,100.277,0,-0.277" Foreground="White"/>
-            		<Rectangle HorizontalAlignment="Left" Height="90.333" Stroke="#C4D9B36C" VerticalAlignment="Top" Width="250" Margin="0,459.944,0,-0.277">
-            			<Rectangle.Fill>
-            				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-            					<GradientStop Color="#005687A6"/>
-            					<GradientStop Color="#CC5687A6" Offset="1"/>
-            					<GradientStop Color="#DD5687A6" Offset="0.716"/>
-            					<GradientStop Color="#AD5687A6" Offset="0.401"/>
-            				</LinearGradientBrush>
-            			</Rectangle.Fill>
-            		</Rectangle>
-            	</Grid>
-            	<Grid Margin="0,0,0,445" Background="#CC5687A6">
-            		<Grid Background="{StaticResource ListViewItemOverlayBackgroundThemeBrush}" Height="104.775" VerticalAlignment="Bottom" >
-            			<Grid.RowDefinitions>
-            				<RowDefinition Height="Auto"/>
-            				<RowDefinition/>
-            			</Grid.RowDefinitions>
-            			<TextBlock Text="{Binding Description}" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextStyle}" Margin="12,3,30,0" HorizontalAlignment="Left" FontSize="26.667" FontFamily="Segoe UI Semibold" LineHeight="32"/>
-            			<TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" Text="{Binding Tasks.Count}" FontSize="96" Grid.RowSpan="2" Margin="0,0,6,6" VerticalAlignment="Bottom" Height="99" FontFamily="Segoe UI Semilight" Visibility="{Binding Tasks.Count, Converter={StaticResource IntToVisibilityConverter}}"/>
-            		</Grid>
-            	</Grid>
+                    <ListBox HorizontalAlignment="Left" VerticalAlignment="Top" Height="449.723" ItemsSource="{Binding Tasks}" Style="{StaticResource DashboardTaskListboxTemplate}" ItemTemplate="{StaticResource DashboardTaskListItemTemplate}" Background="#CC5687A6" Margin="0,100.277,0,-0.277" Foreground="White"/>
+                    <Rectangle HorizontalAlignment="Left" Height="90.333" Stroke="#C4D9B36C" VerticalAlignment="Top" Width="250" Margin="0,459.944,0,-0.277">
+                        <Rectangle.Fill>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#005687A6"/>
+                                <GradientStop Color="#CC5687A6" Offset="1"/>
+                                <GradientStop Color="#DD5687A6" Offset="0.716"/>
+                                <GradientStop Color="#AD5687A6" Offset="0.401"/>
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                </Grid>
+                <Grid Margin="0,0,0,445" Background="#CC5687A6">
+                    <Grid Background="{StaticResource ListViewItemOverlayBackgroundThemeBrush}" Height="104.775" VerticalAlignment="Bottom" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="{Binding Description}" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextStyle}" Margin="12,3,30,0" HorizontalAlignment="Left" FontSize="26.667" FontFamily="Segoe UI Semibold" LineHeight="32"/>
+                        <TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" Text="{Binding Tasks.Count}" FontSize="96" Grid.RowSpan="2" Margin="0,0,6,6" VerticalAlignment="Bottom" Height="99" FontFamily="Segoe UI Semilight" Visibility="{Binding Tasks.Count, Converter={StaticResource IntToVisibilityConverter}}"/>
+                    </Grid>
+                </Grid>
             </Grid>
         </DataTemplate>
     </common:LayoutAwarePage.Resources>
@@ -59,13 +59,13 @@
         <!-- Back button and page title -->
 
         <!-- Horizontal scrolling grid used in most view states -->
-        <Grid HorizontalAlignment="Right" VerticalAlignment="Top">
-        	<Grid.ColumnDefinitions>
-        		<ColumnDefinition/>
-        		<ColumnDefinition Width="Auto"/>
-        	</Grid.ColumnDefinitions>
-        	<Button HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource AddButtonNoLabelStyle}" Grid.Column="1" Foreground="#FF1E2F3A"/>
-        	<Button Content="add new task" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FF1E2F3A" BorderBrush="{x:Null}" FontSize="29.333" Margin="0,0,-18,0"/>
+        <Grid x:Name="addNewTaskGrid" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,8,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Button HorizontalAlignment="Left" Click="AddNewTask" VerticalAlignment="Center" Style="{StaticResource AddButtonNoLabelStyle}" Grid.Column="1" Foreground="{StaticResource ForegroundDarkTextBrush}"/>
+            <Button Content="add new task" Click="AddNewTask" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="{StaticResource ForegroundDarkTextBrush}" BorderBrush="{x:Null}" FontSize="29.333" Margin="0,0,-18,0"/>
         </Grid>
 
         <!-- Horizontal scrolling grid used in most view states -->
@@ -82,11 +82,11 @@
             ItemClick="ItemViewItemClick">
 
             <GridView.ItemsPanel>
-                <ItemsPanelTemplate>                        
+                <ItemsPanelTemplate>
                     <VirtualizingStackPanel Orientation="Horizontal"/>
                 </ItemsPanelTemplate>
             </GridView.ItemsPanel>
-            
+
         </GridView>
 
         <!-- Vertical scrolling list only used when snapped -->
@@ -102,6 +102,29 @@
             SelectionMode="None"
             IsItemClickEnabled="True"
             ItemClick="ItemViewItemClick"/>
+        <Grid x:Name="addNewTaskOverlay" Background="#95646464" Visibility="Collapsed">
+        	<Grid HorizontalAlignment="Center" Height="646" VerticalAlignment="Center" Width="600" Background="#FFD9C771" Margin="385,56,381,66" DataContext="{Binding NewTask, Mode=OneWay}">
+        		<Grid.ColumnDefinitions>
+        			<ColumnDefinition Width="103*"/>
+        			<ColumnDefinition Width="197*"/>
+        		</Grid.ColumnDefinitions>
+        		<Grid.RowDefinitions>
+        			<RowDefinition Height="Auto"/>
+        			<RowDefinition Height="Auto"/>
+        			<RowDefinition Height="Auto"/>
+        			<RowDefinition Height="Auto"/>
+        			<RowDefinition Height="212*"/>
+        			<RowDefinition Height="151*"/>
+        		</Grid.RowDefinitions>
+        		<TextBlock TextWrapping="Wrap" Text="Title" VerticalAlignment="Center" Grid.Row="1" FontSize="29.333" Foreground="{StaticResource ForegroundDarkTextBrush}" Margin="15,5.5,0,5.5" Height="35"/>
+        		<TextBlock TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Grid.Row="2" FontSize="29.333" Foreground="{StaticResource ForegroundDarkTextBrush}" Margin="15,5.5,0,5.5" Height="35"/>
+        		<TextBlock TextWrapping="Wrap" Text="Target Date" VerticalAlignment="Top" Foreground="{StaticResource ForegroundDarkTextBrush}" FontSize="29.333" Grid.Row="3" Margin="15,5,0,0" Height="35"/>
+        		<TextBox TextWrapping="Wrap" Text="{Binding Title, Mode=TwoWay}" VerticalAlignment="Center" Margin="0,7,15,7" Grid.Row="1" Grid.Column="1" Height="32"/>
+        		<TextBox TextWrapping="Wrap" Text="{Binding Description, Mode=TwoWay}" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" Margin="0,7,15,7" AcceptsReturn="True"/>
+        		<TextBlock TextWrapping="Wrap" Text="add a new task" VerticalAlignment="Top" Foreground="{StaticResource ForegroundDarkTextBrush}" FontSize="64" Margin="10,10,5,30" Grid.ColumnSpan="3"/>
+        		<TextBox TextWrapping="Wrap" Text="{Binding TargetDate, Mode=TwoWay}" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1" Height="32" Margin="0,7,15,7"/>
+        	</Grid>
+        </Grid>
 
         <VisualStateManager.VisualStateGroups>
 

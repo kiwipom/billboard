@@ -90,6 +90,7 @@
             	<Setter Property="AutomationProperties.Name" Value="Add"/>
             	<Setter Property="Content" Value="&#xE109;"/>
             </Style>
+            <SolidColorBrush x:Key="ForegroundDarkTextBrush" Color="#FF1E2F3A"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

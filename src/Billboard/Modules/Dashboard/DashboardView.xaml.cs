@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace Billboard.Modules.Dashboard
@@ -19,6 +20,13 @@ namespace Billboard.Modules.Dashboard
         void ItemViewItemClick(object sender, ItemClickEventArgs e)
         {
             
+        }
+
+        private void AddNewTask(object sender, RoutedEventArgs e)
+        {
+            // TODO: display UI for user to insert details about new task
+
+
         }
     }
 }

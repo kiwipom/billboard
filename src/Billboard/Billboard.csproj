@@ -119,7 +119,10 @@
     <Compile Include="Models\UserTaskEvent.cs" />
     <Compile Include="Modules\Dashboard\DashboardViewModel.cs" />
     <Compile Include="Modules\Dashboard\DesignDashboardViewModel.cs" />
+    <Compile Include="Modules\Dashboard\DesignNewTaskViewModel.cs" />
     <Compile Include="Modules\Dashboard\IDashboardViewModel.cs" />
+    <Compile Include="Modules\Dashboard\INewTaskViewModel.cs" />
+    <Compile Include="Modules\Dashboard\NewTaskViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Common\BindableBase.cs" />
     <Compile Include="Common\BooleanToVisibilityConverter.cs" />

@@ -10,9 +10,12 @@ namespace Billboard.Modules.Dashboard
         public DashboardViewModel(IEnumerable<BucketModel> buckets)
         {
             Buckets = new ObservableCollection<BucketModel>(buckets);
+            NewTask = new NewTaskViewModel();
         }
 
         public ObservableCollection<BucketModel> Buckets { get; private set; }
+
+        public INewTaskViewModel NewTask { get; private set; }
 
 #pragma warning disable 0067
         public event PropertyChangedEventHandler PropertyChanged;

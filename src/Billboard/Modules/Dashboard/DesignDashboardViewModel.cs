@@ -33,6 +33,8 @@ namespace Billboard.Modules.Dashboard
         }
 
         public ObservableCollection<Models.Bucket> Buckets { get; private set; }
+        
+        public INewTaskViewModel NewTask { get { return new DesignNewTaskViewModel(); } }
 
 #pragma warning disable 0067
         public event PropertyChangedEventHandler PropertyChanged;
