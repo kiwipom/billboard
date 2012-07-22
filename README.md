@@ -1,8 +1,6 @@
-# billboard
-
-## What are you doing with your time?
-
 ![](https://github.com/shiftkey/billboard/raw/master/logo.png)
+
+# What are you doing with your time?
 
 This is a app I started building on a Sunday as a social experiment - I had grand plans to stream my desktop and let people watch and get involved. Unfortunately technical difficulties prevented that, so it ended up being a quiet day coding.
 
@@ -14,18 +12,18 @@ I got a bunch of work done in the end, but I'm sticking to screenshots until I c
  - introduce some of the lean/kanban concepts in reporting (continuous flow diagrams? burn down charts?)
  - adapt to the available screen
 
-
 ### Implemented
  
  - fetching data from sqlite
  - basic data entry form to add tasks
- - visual cues
+ - visual cues for tasks with a target date and large tasks
  - tutorial done as tasks on the board
 
 ### What's Next?
  
  - restyling the default controls 
- - editing an existing task
+ - font sizes - experiment as they don't feel right across different screen resolutions
+ - implement editing an existing task
  - drag and drop items between buckets
  - reorder items in a bucket
 
