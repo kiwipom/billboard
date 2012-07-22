@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Billboard", "Billboard\Billboard.csproj", "{424AE252-3C13-4146-A6E9-4383937E20E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Billboard.Logic", "Billboard.Logic\Billboard.Logic.csproj", "{D8407A8E-BDC1-41B3-B4F0-E11E703139D8}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM = Debug|ARM
@@ -41,16 +39,6 @@ Global
 		{424AE252-3C13-4146-A6E9-4383937E20E1}.Release|x86.ActiveCfg = Release|x86
 		{424AE252-3C13-4146-A6E9-4383937E20E1}.Release|x86.Build.0 = Release|x86
 		{424AE252-3C13-4146-A6E9-4383937E20E1}.Release|x86.Deploy.0 = Release|x86
-		{D8407A8E-BDC1-41B3-B4F0-E11E703139D8}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{D8407A8E-BDC1-41B3-B4F0-E11E703139D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D8407A8E-BDC1-41B3-B4F0-E11E703139D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D8407A8E-BDC1-41B3-B4F0-E11E703139D8}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{D8407A8E-BDC1-41B3-B4F0-E11E703139D8}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{D8407A8E-BDC1-41B3-B4F0-E11E703139D8}.Release|ARM.ActiveCfg = Release|Any CPU
-		{D8407A8E-BDC1-41B3-B4F0-E11E703139D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D8407A8E-BDC1-41B3-B4F0-E11E703139D8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D8407A8E-BDC1-41B3-B4F0-E11E703139D8}.Release|x64.ActiveCfg = Release|Any CPU
-		{D8407A8E-BDC1-41B3-B4F0-E11E703139D8}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
