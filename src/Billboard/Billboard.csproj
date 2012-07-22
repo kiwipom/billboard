@@ -114,6 +114,7 @@
     <Compile Include="Logic\SessionManagerMonkey.cs" />
     <Compile Include="Logic\UserTaskRepository.cs" />
     <Compile Include="Models\BucketViewModel.cs" />
+    <Compile Include="Models\UserTaskViewModel.cs" />
     <Compile Include="Modules\Browse\BucketViewModel.cs" />
     <Compile Include="Modules\Browse\Design\DesignBucketViewModel.cs" />
     <Compile Include="Modules\Browse\IBucketViewModel.cs" />

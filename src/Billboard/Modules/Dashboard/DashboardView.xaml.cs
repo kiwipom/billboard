@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Billboard.Logic;
-using Billboard.Models;
 using GalaSoft.MvvmLight.Messaging;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;

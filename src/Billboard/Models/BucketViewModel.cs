@@ -21,7 +21,12 @@ namespace Billboard.Models
 
         public static BucketViewModel Map(Bucket bucket)
         {
-            return new BucketViewModel(); // TODO
+            return new BucketViewModel
+                       {
+                           Id = bucket.Id,
+                           Description = bucket.Description,
+                           Order = bucket.Order
+                       };
         }
 
 #pragma warning disable 0067
