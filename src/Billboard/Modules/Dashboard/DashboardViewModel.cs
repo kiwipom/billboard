@@ -21,16 +21,9 @@ namespace Billboard.Modules.Dashboard
             NewTask = new NewTaskViewModel(messenger);
 
             messenger.Register<UserTaskAddedMessage>(this, HandleCreatedUserTaskMessage);
-            messenger.Register<RefreshUserDataMessage>(this, HandleRefreshUserDataMessage);
         }
 
         public async void Initialize()
-        {
-            var data = await bucketRepository.GetAll();
-            Buckets = new ObservableCollection<BucketViewModel>(data);
-        }
-
-        async void HandleRefreshUserDataMessage(RefreshUserDataMessage obj)
         {
             var data = await bucketRepository.GetAll();
             Buckets = new ObservableCollection<BucketViewModel>(data);

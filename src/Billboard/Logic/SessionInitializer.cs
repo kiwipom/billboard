@@ -40,8 +40,6 @@ namespace Billboard.Logic
             await userTaskRepository.Insert(new UserTask { Title = "Third task", BucketId = firstBucket.Id });
 
             ApplicationData.Current.LocalSettings.Values["Initialized"] = true;
-
-            messenger.Send(new RefreshUserDataMessage());
         }
     }
 }

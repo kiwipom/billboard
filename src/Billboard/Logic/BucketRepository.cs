@@ -37,10 +37,15 @@ namespace Billboard.Logic
             {
                 using (var db = new SQLiteConnection(configuration.FilePath))
                 {
-                    var buckets = db.Table<Bucket>().Select(BucketViewModel.Map).ToList();
+                    var buckets = db.Table<Bucket>()
+                                    .Select(BucketViewModel.Map)
+                                    .ToList();
                     foreach (var b in buckets)
                     {
-                        var tasks = db.Table<UserTask>().Where(t => t.BucketId == b.Id).Select(UserTaskViewModel.Map).ToList();
+                        var tasks = db.Table<UserTask>()
+                                      .Where(t => t.BucketId == b.Id)
+                                      .Select(UserTaskViewModel.Map)
+                                      .ToList();
                         foreach (var t in tasks)
                         {
                             b.Tasks.Add(t);
