@@ -15,10 +15,10 @@ namespace Billboard.Modules.Dashboard
             Buckets = new ObservableCollection<BucketViewModel>(buckets);
             NewTask = new NewTaskViewModel(messenger);
 
-            messenger.Register<CreatedUserTaskMessage>(this, HandleCreatedUserTaskMessage);
+            messenger.Register<UserTaskAddedMessage>(this, HandleCreatedUserTaskMessage);
         }
 
-        void HandleCreatedUserTaskMessage(CreatedUserTaskMessage obj)
+        void HandleCreatedUserTaskMessage(UserTaskAddedMessage obj)
         {
             Buckets.First().Tasks.Add(obj.Task);
         }

@@ -26,7 +26,7 @@ namespace Billboard.Logic
         private async void HandleUserTaskCreatedMessage(CreateUserTaskMessage obj)
         {
             await taskRepository.Insert(obj.Task);
-            messenger.Send(new CreatedUserTaskMessage(UserTaskViewModel.Map(obj.Task)));
+            messenger.Send(new UserTaskAddedMessage(UserTaskViewModel.Map(obj.Task)));
         }
     }
 }

@@ -22,16 +22,6 @@ namespace Billboard.Logic
                 {
                     db.RunInTransaction(() =>
                     {
-                        var first = db.Table<Bucket>().OrderBy(c => c.Order).FirstOrDefault();
-                        if (first == null)
-                        {
-                            throw new InvalidOperationException("how the hell did we get here?");
-                        }
-                        task.BucketId = first.Id;
-                    });
-
-                    db.RunInTransaction(() =>
-                    {
                         db.CreateTable<UserTask>();    
                         db.Insert(task);
                     });

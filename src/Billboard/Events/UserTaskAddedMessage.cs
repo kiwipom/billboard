@@ -2,9 +2,9 @@ using Billboard.Models;
 
 namespace Billboard.Events
 {
-    public class CreatedUserTaskMessage
+    public class UserTaskAddedMessage
     {
-        public CreatedUserTaskMessage(UserTaskViewModel task)
+        public UserTaskAddedMessage(UserTaskViewModel task)
         {
             Task = task;
         }

@@ -9,7 +9,9 @@ namespace Billboard.Logic
         readonly BucketRepository bucketRepository;
         readonly UserTaskRepository userTaskRepository;
 
-        public SessionInitializer(BucketRepository bucketRepository, UserTaskRepository userTaskRepository)
+        public SessionInitializer(
+            BucketRepository bucketRepository, 
+            UserTaskRepository userTaskRepository)
         {
             this.bucketRepository = bucketRepository;
             this.userTaskRepository = userTaskRepository;
@@ -23,13 +25,14 @@ namespace Billboard.Logic
                 return;
             }
 
-            await bucketRepository.Insert(new Bucket { Description = "Backlog", Order = 1 });
+            var firstBucket = new Bucket {Description = "Backlog", Order = 1};
+            await bucketRepository.Insert(firstBucket);
             await bucketRepository.Insert(new Bucket { Description = "Doing", Order = 2 });
             await bucketRepository.Insert(new Bucket { Description = "Done", Order = 3 });
 
-            await userTaskRepository.Insert(new UserTask { Title = "First task" });
-            await userTaskRepository.Insert(new UserTask { Title = "Second task" });
-            await userTaskRepository.Insert(new UserTask { Title = "Third task" });
+            await userTaskRepository.Insert(new UserTask { Title = "First task", BucketId = firstBucket.Id});
+            await userTaskRepository.Insert(new UserTask { Title = "Second task", BucketId = firstBucket.Id });
+            await userTaskRepository.Insert(new UserTask { Title = "Third task", BucketId = firstBucket.Id });
 
             ApplicationData.Current.LocalSettings.Values["Initialized"] = true;
         }
