@@ -103,6 +103,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Bucket\BucketViewModel.cs" />
+    <Compile Include="Modules\Bucket\DesignBucketViewModel.cs" />
+    <Compile Include="Modules\Bucket\IBucketViewModel.cs" />
     <Compile Include="Modules\Dashboard\DashboardView.xaml.cs">
       <DependentUpon>DashboardView.xaml</DependentUpon>
     </Compile>
