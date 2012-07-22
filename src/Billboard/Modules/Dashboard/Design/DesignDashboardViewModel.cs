@@ -12,41 +12,53 @@ namespace Billboard.Modules.Dashboard.Design
             Buckets = new ObservableCollection<BucketViewModel>();
 
             var toDoBucket = new BucketViewModel { Description = "To Do" };
-            toDoBucket.Tasks.Add(
-                new UserTaskViewModel
-                {
-                    Title = "Buy Milk",
-                    Description = "No skim milk or else!",
-                    TargetDate = DateTime.Now.Date
-                });
-            toDoBucket.Tasks.Add(
-                new UserTaskViewModel
-                {
-                    Title = "Buy Eggs",
-                    Description = "So many eggs you guys!",
-                    TargetDate = DateTime.Now.AddDays(1).Date
-                });
-            toDoBucket.Tasks.Add(
-                new UserTaskViewModel
-                {
-                    Title = "Walk the dog", 
-                    Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porttitor risus et diam viverra eget consequat erat fermentum. Vivamus metus massa, pretium at fermentum vitae, fringilla sed nibh. Duis posuere, tellus in fermentum sollicitudin, urna nunc molestie felis, et tempor augue orci at dui.",
-                    Size = "Large"
-                });
-            toDoBucket.Tasks.Add(new UserTaskViewModel { Title = "Sed risus odio, sollicitudin quis elementum sit amet", Description = "pretium eget eros. Morbi volutpat, nunc at feugiat molestie, ipsum tortor semper arcu, id tincidunt tortor risus eu eros. Nulla venenatis porta rhoncus. Duis eleifend accumsan tellus at ornare. Curabitur nec nunc nulla, id dapibus nunc. Curabitur eu urna sed quam mattis pharetra." });
-            toDoBucket.Tasks.Add(new UserTaskViewModel { Title = "Phasellus tempor posuere dapibus. Nulla fringilla luctus elit ac pellentesque.", Description = "Donec volutpat dui purus, sit amet mollis ligula. Maecenas pharetra semper eros vitae congue. Integer nulla leo, luctus nec laoreet vitae, aliquam sit amet eros. Quisque commodo aliquam nisl et interdum. In ut porttitor arcu. Mauris ac leo orci, pretium placerat arcu. Duis tempor ante sit amet lorem tempus mollis. Maecenas in enim vitae purus bibendum ornare vel in magna. Nulla facilisi. Nunc quis sapien eget magna aliquet sagittis. Quisque a ornare ligula. Suspendisse potenti." });
+            toDoBucket.Tasks.Add(new UserTaskViewModel
+            {
+                Title = "A simple task",
+                Description = "Capturing the things you need to do is the best way to not forget about them. The sorts of things you need to capture are up to you...",
+            });
+            toDoBucket.Tasks.Add(new UserTaskViewModel
+            {
+                Title = "A task with a goal",
+                Description = "Sometimes you need to get something done soon, otherwise bad things will happen.",
+                TargetDate = DateTime.Now.AddDays(2),
+            });
+            toDoBucket.Tasks.Add(new UserTaskViewModel
+            {
+                Title = "A big task",
+                Description = "Sometimes a task requires more time compared to the other tasks in the bucket. This is how you can add emphasis to them.",
+                Size = "Large"
+            });
             Buckets.Add(toDoBucket);
 
             var doingBucket = new BucketViewModel { Description = "Doing" };
+            doingBucket.Tasks.Add(new UserTaskViewModel
+            {
+                Title = "A task underway",
+                Description = "As you work through the tasks on your list, you can move them across from left to right",
+            });
+            doingBucket.Tasks.Add(new UserTaskViewModel
+            {
+                Title = "Beware doing too much at once",
+                Description = "If you find yourself with too many things in this bucket, you may need to move some tasks back to help with focus",
+                TargetDate = DateTime.Now.AddDays(-2),
+            });
+
             Buckets.Add(doingBucket);
 
-            var pendingBucket = new BucketViewModel { Description = "Pending Approval" };
-            Buckets.Add(pendingBucket);
-
             var doneBucket = new BucketViewModel { Description = "Done" };
-            doneBucket.Tasks.Add(new UserTaskViewModel { Title = "Foo" });
-            doneBucket.Tasks.Add(new UserTaskViewModel { Title = "Bar" });
-            doneBucket.Tasks.Add(new UserTaskViewModel { Title = "Baz" });
+            doneBucket.Tasks.Add(new UserTaskViewModel
+            {
+                Title = "Doesn't that feel awesome?",
+                Description = "Don't forget to move the completed tasks over when you've done them",
+            });
+            doneBucket.Tasks.Add(new UserTaskViewModel
+            {
+                Title = "Focus on what's important?",
+                Description = "After a while, these completed tasks will be hidden automatically, so you don't need to manually cleanup after.",
+            });
+        
+
 
             Buckets.Add(doneBucket);
         }
