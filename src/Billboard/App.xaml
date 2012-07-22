@@ -85,6 +85,11 @@
             		<TextBlock TextWrapping="Wrap" Text="{Binding Description}" VerticalAlignment="Top" Visibility="{Binding Text, Converter={StaticResource TextToVisibilityConverter}, RelativeSource={RelativeSource Mode=Self}}" FontFamily="Segoe UI Light" FontSize="9.333"/>
             	</StackPanel>
             </DataTemplate>
+            <Style x:Key="AddButtonNoLabelStyle" TargetType="Button" BasedOn="{StaticResource AppBarButtonStyle}">
+            	<Setter Property="AutomationProperties.AutomationId" Value="AddAppBarButton"/>
+            	<Setter Property="AutomationProperties.Name" Value="Add"/>
+            	<Setter Property="Content" Value="&#xE109;"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -59,6 +59,16 @@
         <!-- Back button and page title -->
 
         <!-- Horizontal scrolling grid used in most view states -->
+        <Grid HorizontalAlignment="Right" VerticalAlignment="Top">
+        	<Grid.ColumnDefinitions>
+        		<ColumnDefinition/>
+        		<ColumnDefinition Width="Auto"/>
+        	</Grid.ColumnDefinitions>
+        	<Button HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource AddButtonNoLabelStyle}" Grid.Column="1" Foreground="#FF1E2F3A"/>
+        	<Button Content="add new task" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FF1E2F3A" BorderBrush="{x:Null}" FontSize="29.333" Margin="0,0,-18,0"/>
+        </Grid>
+
+        <!-- Horizontal scrolling grid used in most view states -->
         <GridView
             x:Name="itemGridView"
             AutomationProperties.AutomationId="ItemGridView"
