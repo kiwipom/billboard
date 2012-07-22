@@ -14,12 +14,12 @@ namespace Billboard.Modules.Dashboard
             InitializeComponent();
         }
 
-        protected override async void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
+        protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
             var repository = new BucketRepository(DatabaseConfiguration.Current);
-            var buckets = await repository.GetAll();
-            var viewModel = new DashboardViewModel(buckets, Messenger.Default);
+            var viewModel = new DashboardViewModel(Messenger.Default, repository);
             DataContext = viewModel;
+            viewModel.Initialize();
         }
 
         void ItemViewItemClick(object sender, ItemClickEventArgs e)

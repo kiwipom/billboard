@@ -43,7 +43,7 @@ namespace Billboard
 
             var bucketRepository = new BucketRepository(DatabaseConfiguration.Current);
             var userTaskRepository = new UserTaskRepository(DatabaseConfiguration.Current);
-            var session = new SessionInitializer(bucketRepository, userTaskRepository);
+            var session = new SessionInitializer(bucketRepository, userTaskRepository, Messenger.Default);
 
             sessionMonkey = new SessionManagerMonkey(Messenger.Default, userTaskRepository);
 

@@ -106,6 +106,7 @@
     <Compile Include="Common\IntToVisibilityConverter.cs" />
     <Compile Include="Common\TextBoxEx.cs" />
     <Compile Include="Common\TextToVisibilityConverter.cs" />
+    <Compile Include="Events\RefreshUserDataMessage.cs" />
     <Compile Include="Events\UserTaskAddedMessage.cs" />
     <Compile Include="Events\CreateUserTaskMessage.cs" />
     <Compile Include="Logic\BucketRepository.cs" />

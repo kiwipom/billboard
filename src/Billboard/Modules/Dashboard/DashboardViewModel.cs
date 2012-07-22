@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using Billboard.Events;
+using Billboard.Logic;
 using Billboard.Models;
 using GalaSoft.MvvmLight.Messaging;
 
@@ -10,12 +11,29 @@ namespace Billboard.Modules.Dashboard
 {
     public class DashboardViewModel : IDashboardViewModel
     {
-        public DashboardViewModel(IEnumerable<BucketViewModel> buckets, IMessenger messenger)
+        readonly BucketRepository bucketRepository;
+
+        public DashboardViewModel(IMessenger messenger, BucketRepository bucketRepository)
         {
-            Buckets = new ObservableCollection<BucketViewModel>(buckets);
+            this.bucketRepository = bucketRepository;
+
+            Buckets = new ObservableCollection<BucketViewModel>();
             NewTask = new NewTaskViewModel(messenger);
 
             messenger.Register<UserTaskAddedMessage>(this, HandleCreatedUserTaskMessage);
+            messenger.Register<RefreshUserDataMessage>(this, HandleRefreshUserDataMessage);
+        }
+
+        public async void Initialize()
+        {
+            var data = await bucketRepository.GetAll();
+            Buckets = new ObservableCollection<BucketViewModel>(data);
+        }
+
+        async void HandleRefreshUserDataMessage(RefreshUserDataMessage obj)
+        {
+            var data = await bucketRepository.GetAll();
+            Buckets = new ObservableCollection<BucketViewModel>(data);
         }
 
         void HandleCreatedUserTaskMessage(UserTaskAddedMessage obj)
