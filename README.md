@@ -1,4 +1,4 @@
-![](https://github.com/shiftkey/billboard/raw/master/logo.png)
+![billboard](https://github.com/shiftkey/billboard/raw/master/logo.png)
 
 # What are you doing with your time?
 
@@ -24,16 +24,18 @@ I got a bunch of work done in the end, but I'm sticking to screenshots until I c
  - restyling the default controls 
  - font sizes - experiment as they don't feel right across different screen resolutions
  - implement editing an existing task
- - drag and drop items between buckets
- - reorder items in a bucket
+ - drag and drop tasks between buckets
+ - reorder tasks in a bucket
+ - share target - receive a URL/tweet/text/something and turn it into a new task
 
 ### Other Cool Things I could add:
 
- - Toast/Tile notifications - task reminders
+ - Toast/Tile notifications - use for task reminders
+
  - Introduce Portable Tools project to reuse code elsewhere (WP7/8)
  - Dogfood the Telerik Metro controls - Date Picker, Charts, sliders etc
  - syncing data between devices
- - testing - what can I show off?
+ - testing these components
  - Sync with Trello
  - Sync with Remember the Milk
 
