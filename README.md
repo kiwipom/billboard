@@ -27,11 +27,11 @@ I got a bunch of work done in the end, but I'm sticking to screenshots until I c
  - drag and drop tasks between buckets
  - reorder tasks in a bucket
  - share target - receive a URL/tweet/text/something and turn it into a new task
+ - resolve bug with Telerik RadDatePicker - http://www.telerik.com/community/forums/metro/datepicker-xaml/binding-errors-with-pickers.aspx
 
 ### Other Cool Things I could add:
 
  - Toast/Tile notifications - use for task reminders
-
  - Introduce Portable Tools project to reuse code elsewhere (WP7/8)
  - Dogfood the Telerik Metro controls - Date Picker, Charts, sliders etc
  - syncing data between devices
