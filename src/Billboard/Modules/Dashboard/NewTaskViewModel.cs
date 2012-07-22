@@ -3,12 +3,13 @@ using System.ComponentModel;
 using System.Windows.Input;
 using Billboard.Events;
 using Billboard.Models;
+using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 
 namespace Billboard.Modules.Dashboard
 {
-    public class NewTaskViewModel : INewTaskViewModel
+    public class NewTaskViewModel : ViewModelBase, INewTaskViewModel
     {
         readonly IMessenger messenger;
 
@@ -17,14 +18,34 @@ namespace Billboard.Modules.Dashboard
             this.messenger = messenger;
         }
 
-        public string Title { get; set; }
-        public string Description { get; set; }
+        string title;
+        public string Title
+        {
+            get { return title; }
+            set
+            {
+                Set(() => Title, ref title, value);
+                command.RaiseCanExecuteChanged();
+            }
+        }
+
+        string description;
+        public string Description
+        {
+            get { return description; }
+            set
+            {
+                Set(() => Description, ref description, value);
+                command.RaiseCanExecuteChanged();
+            }
+        }
+
         public DateTime TargetDate { get; set; }
 
-        private ICommand command;
-        public ICommand SaveCommand { get { return command ?? (command = new RelayCommand(Run, CanRun)); } }
+        RelayCommand command;
+        public ICommand SaveCommand { get { return command ?? (command = new RelayCommand(Save, CanSave)); } }
 
-        private bool CanRun()
+        bool CanSave()
         {
             if (string.IsNullOrWhiteSpace(Title))
                 return false;
@@ -35,18 +56,11 @@ namespace Billboard.Modules.Dashboard
             return true;
         }
 
-        private void Run()
+        void Save()
         {
-            var model = new UserTask();
-            model.Title = Title;
-            model.Description = Description;
-            model.TargetDate = TargetDate;
+            var model = new UserTask {Title = Title, Description = Description, TargetDate = TargetDate};
 
             messenger.Send(new CreateUserTaskMessage(model));
         }
-
-#pragma warning disable 0067
-        public event PropertyChangedEventHandler PropertyChanged;
-#pragma warning restore 0067
     }
 }

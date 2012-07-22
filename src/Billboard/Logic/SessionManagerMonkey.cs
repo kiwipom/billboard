@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Billboard.Events;
+using Billboard.Models;
 using GalaSoft.MvvmLight.Messaging;
 
 namespace Billboard.Logic
@@ -25,7 +26,7 @@ namespace Billboard.Logic
         private async void HandleUserTaskCreatedMessage(CreateUserTaskMessage obj)
         {
             await taskRepository.Insert(obj.Task);
-            messenger.Send(new CreatedUserTaskMessage(obj.Task));
+            messenger.Send(new CreatedUserTaskMessage(UserTaskViewModel.Map(obj.Task)));
         }
     }
 }

@@ -6,7 +6,7 @@ namespace Billboard.Modules.Dashboard
 {
     public interface IDashboardViewModel : INotifyPropertyChanged
     {
-        ObservableCollection<Bucket> Buckets { get; }
+        ObservableCollection<BucketViewModel> Buckets { get; }
 
         INewTaskViewModel NewTask { get; }
     }

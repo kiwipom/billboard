@@ -663,6 +663,7 @@
                          Height="32"
                          Margin="0,7,15,7"
                          VerticalAlignment="Center"
+                         common:TextBoxEx.IsAutoUpdate="True"
                          Style="{StaticResource InputTextBoxStyle}"
                          Text="{Binding Title,
                                         Mode=TwoWay}"
@@ -672,6 +673,7 @@
                          Margin="0,7,15,7"
                          VerticalAlignment="Center"
                          AcceptsReturn="True"
+                         common:TextBoxEx.IsAutoUpdate="True"
                          Style="{StaticResource InputTextBoxStyle}"
                          Text="{Binding Description,
                                         Mode=TwoWay}"
@@ -680,9 +682,10 @@
                                         Grid.Column="1"
                                         Height="40"
                                         Margin="0,7,15,7"
+                                        HorizontalAlignment="Stretch"
                                         VerticalAlignment="Center"
                                         Value="{Binding TargetDate,
-                                                        Mode=TwoWay}" HorizontalAlignment="Stretch" />
+                                                        Mode=TwoWay}" />
                 <StackPanel Grid.Row="5"
                             Grid.ColumnSpan="2"
                             HorizontalAlignment="Center"

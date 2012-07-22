@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Billboard.Models;
@@ -30,18 +31,19 @@ namespace Billboard.Logic
             });
         }
 
-        public async Task<IEnumerable<Bucket>> GetAll()
+        public async Task<IEnumerable<BucketViewModel>> GetAll()
         {
             return await Task.Factory.StartNew(() =>
             {
                 using (var db = new SQLiteConnection(configuration.FilePath))
                 {
-                    var buckets = db.Table<Bucket>().ToList();
-                    var tasks = db.Table<UserTask>().ToList();
-
+                    var buckets = db.Table<Bucket>().ToList().Select(BucketViewModel.Map);
                     foreach (var b in buckets)
                     {
-                        b.Tasks = tasks.Where(t => t.BucketId == b.Id).ToList();
+                        var tasks = db.Table<UserTask>().ToList();
+                        b.Tasks = new ObservableCollection<UserTaskViewModel>(tasks.Where(t => t.BucketId == b.Id)
+                                                                                   .ToList()
+                                                                                   .Select(UserTaskViewModel.Map));
                     }
 
                     return buckets;

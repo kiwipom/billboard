@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Billboard.Common;
 using Billboard.Logic;
 using Billboard.Modules.Dashboard;
+using GalaSoft.MvvmLight.Messaging;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Storage;
@@ -13,6 +14,8 @@ namespace Billboard
 {
     sealed partial class App
     {
+        SessionManagerMonkey sessionMonkey;
+
         public App()
         {
             InitializeComponent();
@@ -41,6 +44,8 @@ namespace Billboard
             var bucketRepository = new BucketRepository(DatabaseConfiguration.Current);
             var userTaskRepository = new UserTaskRepository(DatabaseConfiguration.Current);
             var session = new SessionInitializer(bucketRepository, userTaskRepository);
+
+            sessionMonkey = new SessionManagerMonkey(Messenger.Default, userTaskRepository);
 
             await session.Initialize();
 

@@ -104,6 +104,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\IntToVisibilityConverter.cs" />
+    <Compile Include="Common\TextBoxEx.cs" />
     <Compile Include="Common\TextToVisibilityConverter.cs" />
     <Compile Include="Events\CreatedUserTaskMessage.cs" />
     <Compile Include="Events\CreateUserTaskMessage.cs" />
@@ -112,6 +113,7 @@
     <Compile Include="Logic\SessionInitializer.cs" />
     <Compile Include="Logic\SessionManagerMonkey.cs" />
     <Compile Include="Logic\UserTaskRepository.cs" />
+    <Compile Include="Models\BucketViewModel.cs" />
     <Compile Include="Modules\Browse\BucketViewModel.cs" />
     <Compile Include="Modules\Browse\Design\DesignBucketViewModel.cs" />
     <Compile Include="Modules\Browse\IBucketViewModel.cs" />
@@ -197,6 +199,15 @@
     </Reference>
     <Reference Include="PropertyChanged">
       <HintPath>..\packages\PropertyChanged.Fody.1.25.0.0\Lib\WinRT45\PropertyChanged.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Core">
+      <HintPath>..\packages\Rx-Core.2.0.20622-rc\lib\WinRT45\System.Reactive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces">
+      <HintPath>..\packages\Rx-Interfaces.2.0.20622-rc\lib\WinRT45\System.Reactive.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Linq">
+      <HintPath>..\packages\Rx-Linq.2.0.20622-rc\lib\WinRT45\System.Reactive.Linq.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
