@@ -15,7 +15,11 @@ namespace Billboard.Modules.Dashboard.Design
             toDoBucket.Tasks.Add(new UserTaskViewModel
             {
                 Title = "A simple task",
-                Description = "Capturing the things you need to do is the best way to not forget about them. The sorts of things you need to capture are up to you...",
+                Description = "Capturing the things you need to do is the best way to not forget about them. The sorts of things you need to capture are up to you..."
+            });
+            toDoBucket.Tasks.Add(new UserTaskViewModel
+            {
+                Title = "Some tasks might not even require a description"
             });
             toDoBucket.Tasks.Add(new UserTaskViewModel
             {
@@ -43,6 +47,19 @@ namespace Billboard.Modules.Dashboard.Design
                 Description = "If you find yourself with too many things in this bucket, you may need to move some tasks back to help with focus",
                 TargetDate = DateTime.Now.AddDays(-2),
             });
+            doingBucket.Tasks.Add(new UserTaskViewModel
+            {
+                Title = "Beware doing too much at once",
+                Description = "If you find yourself with too many things in this bucket, you may need to move some tasks back to help with focus",
+                TargetDate = DateTime.Now.AddDays(-3),
+            });
+            doingBucket.Tasks.Add(new UserTaskViewModel
+            {
+                Title = "Beware doing too much at once",
+                Description = "If you find yourself with too many things in this bucket, you may need to move some tasks back to help with focus",
+                TargetDate = DateTime.Now.AddDays(-4),
+            });
+
 
             Buckets.Add(doingBucket);
 

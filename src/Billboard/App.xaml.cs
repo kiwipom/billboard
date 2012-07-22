@@ -15,15 +15,20 @@ namespace Billboard
     sealed partial class App
     {
         SessionManagerMonkey sessionMonkey;
+        FirstFloor.XamlSpy.XamlSpyService service;
 
         public App()
         {
+            this.service = new FirstFloor.XamlSpy.XamlSpyService(this);
+
             InitializeComponent();
             Suspending += OnSuspending;
         }
 
         protected override async void OnLaunched(LaunchActivatedEventArgs args)
         {
+            this.service.StartService();
+
             if (args.PreviousExecutionState == ApplicationExecutionState.Running)
             {
                 Window.Current.Activate();

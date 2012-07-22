@@ -545,9 +545,6 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <!--  Back button and page title  -->
-
-        <!--  Horizontal scrolling grid used in most view states  -->
         <Grid x:Name="addNewTaskGrid"
               Margin="0,8,0,0"
               HorizontalAlignment="Right"
@@ -571,28 +568,90 @@
                     FontSize="29.333"
                     Foreground="{StaticResource ForegroundDarkTextBrush}" />
         </Grid>
+        <ScrollViewer Margin="0,90,0,0"
+                      HorizontalScrollBarVisibility="Auto"
+                      HorizontalScrollMode="Enabled"
+                      IsHorizontalRailEnabled="False"
+                      IsVerticalRailEnabled="False"
+                      VerticalScrollBarVisibility="Disabled"
+                      VerticalScrollMode="Disabled"
+                      ZoomMode="Disabled">
+            <Grid>
+                <Grid.ColumnDefinitions>
+				    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel
+            		Width="640"
+            		Margin="120,40.5,0,90.5"
+            		HorizontalAlignment="Left"
+            		VerticalAlignment="Center">
+            		<Grid Height="356"
+            			Margin="0,0,0,11"
+            			Background="#FF5788A7">
+            			<TextBlock HorizontalAlignment="Center"
+            				VerticalAlignment="Center"
+            				FontSize="64"
+            				Text="welcome message"
+            				TextWrapping="Wrap" />
+            		</Grid>
+            		<Grid Height="180" Background="{StaticResource ForegroundDarkTextBrush}" Width="300" HorizontalAlignment="Right">
+            			<TextBlock HorizontalAlignment="Center"
+            				VerticalAlignment="Center"
+            				FontSize="64"
+            				Text="dismiss"
+            				TextWrapping="Wrap" />
+            		</Grid>
+            	</StackPanel>
+
+            	<GridView x:Name="itemGridView"
+            		AutomationProperties.AutomationId="ItemGridView"
+            		AutomationProperties.Name="Buckets"
+            		IsItemClickEnabled="False"
+            		ItemContainerStyle="{StaticResource DashboardGridViewItemStyle}"
+            		ItemsSource="{Binding Source={StaticResource groupedItemsViewSource}}"
+            		ItemTemplate="{StaticResource BucketDashboardItemTemplate}"
+            		Padding="7,0,40,46"
+            		SelectionMode="None"
+            		Style="{StaticResource DashboardGridViewStyle}" Grid.Column="1">
+
+            		<GridView.ItemsPanel>
+            			<ItemsPanelTemplate>
+            				<VirtualizingStackPanel Orientation="Horizontal" />
+            			</ItemsPanelTemplate>
+            		</GridView.ItemsPanel>
+
+            	</GridView>
+            	<StackPanel
+            		Width="719"
+            		Margin="12,-50,120,0"
+            		HorizontalAlignment="Left"
+            		VerticalAlignment="Center" Grid.Column="2">
+            		<Grid Height="356"
+            			Margin="0,0,0,11"
+            			Background="#FF5788A7">
+            			<TextBlock HorizontalAlignment="Center"
+            				VerticalAlignment="Center"
+            				FontSize="96"
+            				Text="placeholder"
+            				TextWrapping="Wrap" />
+            		</Grid>
+            		<Grid Height="180" Background="{StaticResource ForegroundDarkTextBrush}">
+            			<TextBlock HorizontalAlignment="Center"
+            				VerticalAlignment="Center"
+            				FontSize="64"
+            				Text="placeholder"
+            				TextWrapping="Wrap" />
+            		</Grid>
+            	</StackPanel>
+
+            </Grid>
+
+        </ScrollViewer>
 
         <!--  Horizontal scrolling grid used in most view states  -->
-        <GridView x:Name="itemGridView"
-                  Margin="0,90,0,0"
-                  AutomationProperties.AutomationId="ItemGridView"
-                  AutomationProperties.Name="Grouped Items"
-                  IsItemClickEnabled="True"
-                  ItemClick="ItemViewItemClick"
-                  ItemContainerStyle="{StaticResource DashboardGridViewItemStyle}"
-                  ItemsSource="{Binding Source={StaticResource groupedItemsViewSource}}"
-                  ItemTemplate="{StaticResource BucketDashboardItemTemplate}"
-                  Padding="116,0,40,46"
-                  SelectionMode="None"
-                  Style="{StaticResource DashboardGridViewStyle}">
-
-            <GridView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <VirtualizingStackPanel Orientation="Horizontal" />
-                </ItemsPanelTemplate>
-            </GridView.ItemsPanel>
-
-        </GridView>
 
         <!--  Vertical scrolling list only used when snapped  -->
         <ListView x:Name="itemListView"

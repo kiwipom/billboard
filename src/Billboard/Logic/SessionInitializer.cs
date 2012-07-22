@@ -44,6 +44,13 @@ namespace Billboard.Logic
             await userTaskRepository.Insert(
                 new UserTask
                 {
+                    Title = "Some tasks might not even require a description",
+                    BucketId = firstBucket.Id
+                });
+
+            await userTaskRepository.Insert(
+                new UserTask
+                {
                     Title = "A task with a goal",
                     Description = "Sometimes you need to get something done soon, otherwise bad things will happen.",
                     TargetDate = DateTime.Now.AddDays(2),

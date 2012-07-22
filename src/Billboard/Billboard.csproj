@@ -211,6 +211,9 @@
     <Reference Include="System.Reactive.Linq">
       <HintPath>..\packages\Rx-Linq.2.0.20622-rc\lib\WinRT45\System.Reactive.Linq.dll</HintPath>
     </Reference>
+    <Reference Include="XamlSpy">
+      <HintPath>C:\Program Files (x86)\First Floor Software\XAML Spy\Libraries\WinRT\XamlSpy.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <SDKReference Include="Telerik.UI.Xaml, Version=2012.1.0712">
