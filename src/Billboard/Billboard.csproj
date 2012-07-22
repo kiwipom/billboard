@@ -112,8 +112,10 @@
     <Compile Include="Models\Bucket.cs" />
     <Compile Include="Models\UserTask.cs" />
     <Compile Include="Models\UserTaskEvent.cs" />
+    <Compile Include="Modules\Dashboard\DashboardViewModel.cs" />
+    <Compile Include="Modules\Dashboard\DesignDashboardViewModel.cs" />
+    <Compile Include="Modules\Dashboard\IDashboardViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DataModel\SampleDataSource.cs" />
     <Compile Include="Common\BindableBase.cs" />
     <Compile Include="Common\BooleanToVisibilityConverter.cs" />
     <Compile Include="Common\BooleanNegationConverter.cs" />
@@ -164,6 +166,7 @@
       <HintPath>..\packages\PropertyChanged.Fody.1.25.0.0\Lib\WinRT45\PropertyChanged.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
     <VisualStudioVersion>11.0</VisualStudioVersion>
   </PropertyGroup>

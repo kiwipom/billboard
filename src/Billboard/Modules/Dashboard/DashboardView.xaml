@@ -1,29 +1,31 @@
 ﻿<common:LayoutAwarePage
     x:Name="pageRoot"
     x:Class="Billboard.Modules.Dashboard.DashboardView"
-    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
+    d:DataContext="{d:DesignInstance Type=Dashboard:DesignDashboardViewModel, IsDesignTimeCreatable=True}"
     IsTabStop="false"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Billboard"
-    xmlns:data="using:Billboard.Data"
     xmlns:common="using:Billboard.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    xmlns:Dashboard="using:Billboard.Modules.Dashboard" mc:Ignorable="d">
 
     <Page.Resources>
-
-        <!--
-            Collection of grouped items displayed by this page, bound to a subset
-            of the complete item list because items in groups cannot be virtualized
-        -->
         <CollectionViewSource
             x:Name="groupedItemsViewSource"
-            Source="{Binding Groups}"
-            IsSourceGrouped="true"
-            ItemsPath="TopItems"
-            d:Source="{Binding AllGroups, Source={d:DesignInstance Type=data:SampleDataSource, IsDesignTimeCreatable=True}}"/>
+            Source="{Binding Buckets}"
+            IsSourceGrouped="false"
+            d:Source="{Binding Buckets, Source={d:DesignInstance Type=Dashboard:DesignDashboardViewModel, IsDesignTimeCreatable=True}}" />
+        <DataTemplate x:Key="BucketDashboardItemTemplate">
+            <Grid HorizontalAlignment="Left" Width="250" Height="250">
+                <Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}">
+                    <Image Source="{Binding Image}" Stretch="UniformToFill"/>
+                </Border>
+                <StackPanel VerticalAlignment="Bottom" Background="{StaticResource ListViewItemOverlayBackgroundThemeBrush}">
+                    <TextBlock Text="{Binding Description}" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextStyle}" Height="60" Margin="15,0,15,0"/>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
     </Page.Resources>
 
     <!--
@@ -56,36 +58,17 @@
             Margin="0,-3,0,0"
             Padding="116,0,40,46"
             ItemsSource="{Binding Source={StaticResource groupedItemsViewSource}}"
-            ItemTemplate="{StaticResource Standard250x250ItemTemplate}"
+            ItemTemplate="{StaticResource BucketDashboardItemTemplate}"
             SelectionMode="None"
             IsItemClickEnabled="True"
-            ItemClick="ItemView_ItemClick">
+            ItemClick="ItemViewItemClick">
 
             <GridView.ItemsPanel>
                 <ItemsPanelTemplate>                        
                     <VirtualizingStackPanel Orientation="Horizontal"/>
                 </ItemsPanelTemplate>
             </GridView.ItemsPanel>
-            <GridView.GroupStyle>
-                <GroupStyle>
-                    <GroupStyle.HeaderTemplate>
-                        <DataTemplate>
-                            <Grid Margin="1,0,0,6">
-                                <Button
-                                    AutomationProperties.Name="Group Title"
-                                    Content="{Binding Title}"
-                                    Click="Header_Click"
-                                    Style="{StaticResource TextButtonStyle}"/>
-                            </Grid>
-                        </DataTemplate>
-                    </GroupStyle.HeaderTemplate>
-                    <GroupStyle.Panel>
-                        <ItemsPanelTemplate>
-                            <VariableSizedWrapGrid Orientation="Vertical" Margin="0,0,80,0"/>
-                        </ItemsPanelTemplate>
-                    </GroupStyle.Panel>
-                </GroupStyle>
-            </GridView.GroupStyle>
+            
         </GridView>
 
         <!-- Vertical scrolling list only used when snapped -->
@@ -101,23 +84,7 @@
             ItemTemplate="{StaticResource Standard80ItemTemplate}"
             SelectionMode="None"
             IsItemClickEnabled="True"
-            ItemClick="ItemView_ItemClick">
-
-            <ListView.GroupStyle>
-                <GroupStyle>
-                    <GroupStyle.HeaderTemplate>
-                        <DataTemplate>
-                            <Grid Margin="7,7,0,0">
-                                <Button
-                                    AutomationProperties.Name="Group Title"
-                                    Content="{Binding Title}"
-                                    Click="Header_Click"
-                                    Style="{StaticResource TextButtonStyle}"/>
-                            </Grid>
-                        </DataTemplate>
-                    </GroupStyle.HeaderTemplate>
-                </GroupStyle>
-            </ListView.GroupStyle>
+            ItemClick="ItemViewItemClick">
         </ListView>
 
         <VisualStateManager.VisualStateGroups>

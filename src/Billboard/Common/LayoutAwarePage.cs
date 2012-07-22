@@ -52,9 +52,6 @@ namespace Billboard.Common
         {
             if (Windows.ApplicationModel.DesignMode.DesignModeEnabled) return;
 
-            // Create an empty default view model
-            this.DefaultViewModel = new ObservableDictionary<String, Object>();
-
             // When this page is part of the visual tree make two changes:
             // 1) Map application view state to visual state for the page
             // 2) Handle keyboard and mouse navigation requests
@@ -83,24 +80,6 @@ namespace Billboard.Common
                 Window.Current.CoreWindow.PointerPressed -=
                     this.CoreWindow_PointerPressed;
             };
-        }
-
-        /// <summary>
-        /// An implementation of <see cref="IObservableMap&lt;String, Object&gt;"/> designed to be
-        /// used as a trivial view model.
-        /// </summary>
-        [Obsolete("No, just no")]
-        protected IObservableMap<String, Object> DefaultViewModel
-        {
-            get
-            {
-                return this.GetValue(DefaultViewModelProperty) as IObservableMap<String, Object>;
-            }
-
-            set
-            {
-                this.SetValue(DefaultViewModelProperty, value);
-            }
         }
 
         #region Navigation support
