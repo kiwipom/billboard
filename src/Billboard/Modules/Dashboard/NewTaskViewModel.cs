@@ -1,12 +1,22 @@
 using System;
 using System.ComponentModel;
 using System.Windows.Input;
+using Billboard.Events;
+using Billboard.Models;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace Billboard.Modules.Dashboard
 {
     public class NewTaskViewModel : INewTaskViewModel
     {
+        readonly IMessenger messenger;
+
+        public NewTaskViewModel(IMessenger messenger)
+        {
+            this.messenger = messenger;
+        }
+
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime TargetDate { get; set; }
@@ -27,7 +37,12 @@ namespace Billboard.Modules.Dashboard
 
         private void Run()
         {
-            
+            var model = new UserTask();
+            model.Title = Title;
+            model.Description = Description;
+            model.TargetDate = TargetDate;
+
+            messenger.Send(new UserTaskCreatedMessage(model));
         }
 
 #pragma warning disable 0067

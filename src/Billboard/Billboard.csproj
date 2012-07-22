@@ -105,6 +105,7 @@
     </Compile>
     <Compile Include="Common\IntToVisibilityConverter.cs" />
     <Compile Include="Common\TextToVisibilityConverter.cs" />
+    <Compile Include="Events\UserTaskCreatedMessage.cs" />
     <Compile Include="Modules\Bucket\BucketViewModel.cs" />
     <Compile Include="Modules\Bucket\Design\DesignBucketViewModel.cs" />
     <Compile Include="Modules\Bucket\IBucketViewModel.cs" />
