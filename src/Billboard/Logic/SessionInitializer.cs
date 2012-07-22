@@ -87,7 +87,21 @@ namespace Billboard.Logic
                     Description = "Don't forget to move the completed tasks over when you've done them",
                     BucketId = doneBucket.Id,
                 });
-        
+            await userTaskRepository.Insert(
+                new UserTask
+                {
+                    Title = "Leave the boring bits to us",
+                    Description = "After a while these completed tasks will be hidden automatically, so you don't need to manually cleanup after.",
+                    BucketId = doneBucket.Id
+                });
+            await userTaskRepository.Insert(
+                new UserTask
+                {
+                    Title = "But wait, there's more!",
+                    Description = "The more you use this, the more data we get on your workflow. See those charts on the right? They're made just for you!",
+                    BucketId = doneBucket.Id
+                });
+
             ApplicationData.Current.LocalSettings.Values["Initialized"] = true;
         }
     }
