@@ -24,9 +24,12 @@ namespace Billboard.Modules.Dashboard
 
         private void AddNewTask(object sender, RoutedEventArgs e)
         {
-            // TODO: display UI for user to insert details about new task
+            addNewTaskOverlay.Visibility = Visibility.Visible;
+        }
 
-
+        private void HideOverlay(object sender, RoutedEventArgs e)
+        {
+            addNewTaskOverlay.Visibility = Visibility.Collapsed;
         }
     }
 }

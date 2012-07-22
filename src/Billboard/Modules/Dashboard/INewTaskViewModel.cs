@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Windows.Input;
 
 namespace Billboard.Modules.Dashboard
 {
@@ -8,5 +9,6 @@ namespace Billboard.Modules.Dashboard
         string Title { get; set; }
         string Description { get; set; }
         DateTime TargetDate { get; set; }
+        ICommand SaveCommand { get; }
     }
 }

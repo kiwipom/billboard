@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel;
+using System.Windows.Input;
 
 namespace Billboard.Modules.Dashboard.Design
 {
@@ -15,6 +16,7 @@ namespace Billboard.Modules.Dashboard.Design
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime TargetDate { get; set; }
+        public ICommand SaveCommand { get { return null; } }
 
 #pragma warning disable 0067
         public event PropertyChangedEventHandler PropertyChanged;
