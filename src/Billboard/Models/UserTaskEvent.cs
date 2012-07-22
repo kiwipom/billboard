@@ -1,10 +1,12 @@
 using System;
 using System.ComponentModel;
+using SQLite;
 
 namespace Billboard.Models
 {
     public class UserTaskEvent : INotifyPropertyChanged
     {
+        [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
 
         public int UserTaskId { get; set; }

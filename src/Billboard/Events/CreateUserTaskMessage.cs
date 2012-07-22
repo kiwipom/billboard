@@ -2,9 +2,9 @@
 
 namespace Billboard.Events
 {
-    public class UserTaskCreatedMessage
+    public class CreateUserTaskMessage
     {
-        public UserTaskCreatedMessage(UserTask task)
+        public CreateUserTaskMessage(UserTask task)
         {
             Task = task;
         }

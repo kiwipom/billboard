@@ -42,7 +42,7 @@ namespace Billboard.Modules.Dashboard
             model.Description = Description;
             model.TargetDate = TargetDate;
 
-            messenger.Send(new UserTaskCreatedMessage(model));
+            messenger.Send(new CreateUserTaskMessage(model));
         }
 
 #pragma warning disable 0067

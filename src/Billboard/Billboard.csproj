@@ -105,7 +105,13 @@
     </Compile>
     <Compile Include="Common\IntToVisibilityConverter.cs" />
     <Compile Include="Common\TextToVisibilityConverter.cs" />
-    <Compile Include="Events\UserTaskCreatedMessage.cs" />
+    <Compile Include="Events\CreatedUserTaskMessage.cs" />
+    <Compile Include="Events\CreateUserTaskMessage.cs" />
+    <Compile Include="Logic\BucketRepository.cs" />
+    <Compile Include="Logic\DatabaseConfiguration.cs" />
+    <Compile Include="Logic\SessionInitializer.cs" />
+    <Compile Include="Logic\SessionManagerMonkey.cs" />
+    <Compile Include="Logic\UserTaskRepository.cs" />
     <Compile Include="Modules\Browse\BucketViewModel.cs" />
     <Compile Include="Modules\Browse\Design\DesignBucketViewModel.cs" />
     <Compile Include="Modules\Browse\IBucketViewModel.cs" />
@@ -131,8 +137,8 @@
     <Compile Include="Common\LayoutAwarePage.cs" />
     <Compile Include="Common\RichTextColumns.cs" />
     <Compile Include="Common\SuspensionManager.cs" />
-    <Compile Include="SQLite.cs" />
-    <Compile Include="SQLiteAsync.cs" />
+    <Compile Include="Logic\SQLite.cs" />
+    <Compile Include="Logic\SQLiteAsync.cs" />
     <None Include="FodyWeavers.xml">
       <SubType>Designer</SubType>
     </None>
