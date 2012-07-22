@@ -17,17 +17,19 @@
             <TextBlock HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        FontSize="64"
-                       Text="welcome message"
+                       Text="welcome message goes here"
+                       TextAlignment="Center"
                        TextWrapping="Wrap" />
         </Grid>
         <Grid Width="300"
               Height="180"
               HorizontalAlignment="Right"
               Background="{StaticResource ForegroundDarkTextBrush}">
-            <Button BorderBrush="Transparent" Click="DismissWelcome">
-                <TextBlock HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                           FontSize="64"
+            <Button HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    BorderBrush="Transparent"
+                    Click="DismissWelcome">
+                <TextBlock FontSize="64"
                            Text="dismiss"
                            TextWrapping="Wrap" />
             </Button>
