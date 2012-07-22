@@ -103,14 +103,11 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GroupedItemsPage.xaml.cs">
-      <DependentUpon>GroupedItemsPage.xaml</DependentUpon>
+    <Compile Include="Modules\Dashboard\DashboardView.xaml.cs">
+      <DependentUpon>DashboardView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GroupDetailPage.xaml.cs">
-      <DependentUpon>GroupDetailPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ItemDetailPage.xaml.cs">
-      <DependentUpon>ItemDetailPage.xaml</DependentUpon>
+    <Compile Include="Modules\Bucket\BucketView.xaml.cs">
+      <DependentUpon>BucketView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Bucket.cs" />
     <Compile Include="Models\UserTask.cs" />
@@ -153,15 +150,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="GroupedItemsPage.xaml">
+    <Page Include="Modules\Dashboard\DashboardView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="GroupDetailPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="ItemDetailPage.xaml">
+    <Page Include="Modules\Bucket\BucketView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

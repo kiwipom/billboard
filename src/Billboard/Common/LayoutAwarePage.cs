@@ -89,6 +89,7 @@ namespace Billboard.Common
         /// An implementation of <see cref="IObservableMap&lt;String, Object&gt;"/> designed to be
         /// used as a trivial view model.
         /// </summary>
+        [Obsolete("No, just no")]
         protected IObservableMap<String, Object> DefaultViewModel
         {
             get
@@ -402,6 +403,7 @@ namespace Billboard.Common
         /// Implementation of IObservableMap that supports reentrancy for use as a default view
         /// model.
         /// </summary>
+        [Obsolete("No, just no")]
         private class ObservableDictionary<K, V> : IObservableMap<K, V>
         {
             private class ObservableDictionaryChangedEventArgs : IMapChangedEventArgs<K>
