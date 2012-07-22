@@ -80,17 +80,10 @@
             	</Setter>
             </Style>
             <DataTemplate x:Key="DashboardTaskListItemTemplate">
-            	<Grid>
-            		<Grid.ColumnDefinitions>
-            			<ColumnDefinition Width="6*"/>
-            			<ColumnDefinition Width="19*"/>
-            		</Grid.ColumnDefinitions>
-            		<StackPanel Grid.Column="1">
-            			<TextBlock TextWrapping="Wrap" Text="{Binding Title}" VerticalAlignment="Top" Visibility="{Binding Text, Converter={StaticResource TextToVisibilityConverter}, RelativeSource={RelativeSource Mode=Self}}" FontFamily="Segoe UI" FontSize="14.667"/>
-            			<TextBlock TextWrapping="Wrap" Text="{Binding Description}" VerticalAlignment="Top" Visibility="{Binding Text, Converter={StaticResource TextToVisibilityConverter}, RelativeSource={RelativeSource Mode=Self}}" FontFamily="Segoe UI Light" FontSize="9.333"/>
-            		</StackPanel>
-            		<Rectangle HorizontalAlignment="Left" Height="14" Margin="5,4,5,0" Stroke="#C4D9B36C" VerticalAlignment="Top" Width="14"/>
-            	</Grid>
+            	<StackPanel Margin="4,0,0,0">
+            		<TextBlock TextWrapping="Wrap" Text="{Binding Title}" VerticalAlignment="Top" Visibility="{Binding Text, Converter={StaticResource TextToVisibilityConverter}, RelativeSource={RelativeSource Mode=Self}}" FontFamily="Segoe UI" FontSize="14.667"/>
+            		<TextBlock TextWrapping="Wrap" Text="{Binding Description}" VerticalAlignment="Top" Visibility="{Binding Text, Converter={StaticResource TextToVisibilityConverter}, RelativeSource={RelativeSource Mode=Self}}" FontFamily="Segoe UI Light" FontSize="9.333"/>
+            	</StackPanel>
             </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>

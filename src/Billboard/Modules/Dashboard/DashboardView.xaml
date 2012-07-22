@@ -19,19 +19,29 @@
             d:Source="{Binding Buckets, Source={d:DesignInstance IsDesignTimeCreatable=True, Type=Dashboard:DesignDashboardViewModel}}" />
         <DataTemplate x:Key="BucketDashboardItemTemplate">
             <Grid HorizontalAlignment="Left" Width="250" Height="549.718" Background="#FF5687A6">
-                <Border>
-                    <ListBox HorizontalAlignment="Left" VerticalAlignment="Top" Height="449.723" ItemsSource="{Binding Tasks}" Style="{StaticResource DashboardTaskListboxTemplate}" ItemTemplate="{StaticResource DashboardTaskListItemTemplate}" Background="#CC5687A6" Margin="0,100.277,0,0" Foreground="White"/>
-                </Border>
-                <Grid Margin="0,0,0,445" Background="#CC5687A6">
-                	<Grid Background="{StaticResource ListViewItemOverlayBackgroundThemeBrush}" Height="104.775" VerticalAlignment="Bottom" >
-                		<Grid.RowDefinitions>
-                			<RowDefinition Height="Auto"/>
-                			<RowDefinition/>
-                		</Grid.RowDefinitions>
-                		<TextBlock Text="{Binding Description}" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextStyle}" Margin="12,3,30,0" HorizontalAlignment="Left" FontSize="26.667" FontFamily="Segoe UI Semibold" LineHeight="32"/>
-                		<TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" Text="{Binding Tasks.Count}" FontSize="96" Grid.RowSpan="2" Margin="0,0,6,6" VerticalAlignment="Bottom" Height="99" FontFamily="Segoe UI Semilight" Visibility="{Binding Tasks.Count, Converter={StaticResource IntToVisibilityConverter}}"/>
-                	</Grid>
-                </Grid>
+                <Grid>
+            		<ListBox HorizontalAlignment="Left" VerticalAlignment="Top" Height="449.723" ItemsSource="{Binding Tasks}" Style="{StaticResource DashboardTaskListboxTemplate}" ItemTemplate="{StaticResource DashboardTaskListItemTemplate}" Background="#CC5687A6" Margin="0,100.277,0,-0.277" Foreground="White"/>
+            		<Rectangle HorizontalAlignment="Left" Height="90.333" Stroke="#C4D9B36C" VerticalAlignment="Top" Width="250" Margin="0,459.944,0,-0.277">
+            			<Rectangle.Fill>
+            				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            					<GradientStop Color="#005687A6"/>
+            					<GradientStop Color="#CC5687A6" Offset="1"/>
+            					<GradientStop Color="#DD5687A6" Offset="0.716"/>
+            					<GradientStop Color="#AD5687A6" Offset="0.401"/>
+            				</LinearGradientBrush>
+            			</Rectangle.Fill>
+            		</Rectangle>
+            	</Grid>
+            	<Grid Margin="0,0,0,445" Background="#CC5687A6">
+            		<Grid Background="{StaticResource ListViewItemOverlayBackgroundThemeBrush}" Height="104.775" VerticalAlignment="Bottom" >
+            			<Grid.RowDefinitions>
+            				<RowDefinition Height="Auto"/>
+            				<RowDefinition/>
+            			</Grid.RowDefinitions>
+            			<TextBlock Text="{Binding Description}" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextStyle}" Margin="12,3,30,0" HorizontalAlignment="Left" FontSize="26.667" FontFamily="Segoe UI Semibold" LineHeight="32"/>
+            			<TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" Text="{Binding Tasks.Count}" FontSize="96" Grid.RowSpan="2" Margin="0,0,6,6" VerticalAlignment="Bottom" Height="99" FontFamily="Segoe UI Semilight" Visibility="{Binding Tasks.Count, Converter={StaticResource IntToVisibilityConverter}}"/>
+            		</Grid>
+            	</Grid>
             </Grid>
         </DataTemplate>
     </common:LayoutAwarePage.Resources>
