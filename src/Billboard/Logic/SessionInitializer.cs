@@ -1,7 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Billboard.Events;
 using Billboard.Models;
-using GalaSoft.MvvmLight.Messaging;
 using Windows.Storage;
 
 namespace Billboard.Logic
@@ -10,16 +8,13 @@ namespace Billboard.Logic
     {
         readonly BucketRepository bucketRepository;
         readonly UserTaskRepository userTaskRepository;
-        readonly IMessenger messenger;
 
         public SessionInitializer(
             BucketRepository bucketRepository, 
-            UserTaskRepository userTaskRepository,
-            IMessenger messenger)
+            UserTaskRepository userTaskRepository)
         {
             this.bucketRepository = bucketRepository;
             this.userTaskRepository = userTaskRepository;
-            this.messenger = messenger;
         }
 
         public async Task Initialize()

@@ -6,14 +6,14 @@
                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                         xmlns:Design="using:Billboard.Modules.Dashboard.Design"
                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                        x:Name="pageRoot"
+                        xmlns:Converters="using:Billboard.Converters" x:Name="pageRoot"
                         d:DataContext="{d:DesignInstance Type=Design:DesignDashboardViewModel,
                                                          IsDesignTimeCreatable=True}"
                         IsTabStop="false"
                         mc:Ignorable="d">
 
     <common:LayoutAwarePage.Resources>
-        <common:IntToVisibilityConverter x:Key="IntToVisibilityConverter" />
+        <Converters:IntToVisibilityConverter x:Key="IntToVisibilityConverter" />
         <CollectionViewSource x:Name="groupedItemsViewSource"
                               d:Source="{Binding Buckets,
                                                  Source={d:DesignInstance IsDesignTimeCreatable=True,

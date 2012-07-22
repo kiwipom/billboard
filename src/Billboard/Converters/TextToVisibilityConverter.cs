@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 
-namespace Billboard.Common
+namespace Billboard.Converters
 {
     public class TextToVisibilityConverter : IValueConverter
     {

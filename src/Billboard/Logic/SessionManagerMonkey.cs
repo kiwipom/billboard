@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Billboard.Events;
+﻿using Billboard.Events;
 using Billboard.Models;
 using GalaSoft.MvvmLight.Messaging;
 
