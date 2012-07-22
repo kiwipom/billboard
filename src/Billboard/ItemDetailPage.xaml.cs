@@ -47,9 +47,9 @@ namespace Billboard
             }
 
             // TODO: Create an appropriate data model for your problem domain to replace the sample data
-            var item = SampleDataSource.GetItem((String)navigationParameter);
-            this.DefaultViewModel["Group"] = item.Group;
-            this.DefaultViewModel["Items"] = item.Group.Items;
+            var item = SampleDataSource.GetItem((int)navigationParameter);
+            this.DefaultViewModel["Group"] = item;
+            this.DefaultViewModel["Items"] = item;
             this.flipView.SelectedItem = item;
         }
 

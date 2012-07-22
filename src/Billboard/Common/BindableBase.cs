@@ -1,7 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using Windows.UI.Xaml.Data;
 
 namespace Billboard.Common
 {
@@ -9,6 +8,7 @@ namespace Billboard.Common
     /// Implementation of <see cref="INotifyPropertyChanged"/> to simplify models.
     /// </summary>
     [Windows.Foundation.Metadata.WebHostHidden]
+    [Obsolete]
     public abstract class BindableBase : INotifyPropertyChanged
     {
         /// <summary>
