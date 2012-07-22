@@ -106,13 +106,13 @@
     <Compile Include="Common\IntToVisibilityConverter.cs" />
     <Compile Include="Common\TextToVisibilityConverter.cs" />
     <Compile Include="Events\UserTaskCreatedMessage.cs" />
-    <Compile Include="Modules\Bucket\BucketViewModel.cs" />
-    <Compile Include="Modules\Bucket\Design\DesignBucketViewModel.cs" />
-    <Compile Include="Modules\Bucket\IBucketViewModel.cs" />
+    <Compile Include="Modules\Browse\BucketViewModel.cs" />
+    <Compile Include="Modules\Browse\Design\DesignBucketViewModel.cs" />
+    <Compile Include="Modules\Browse\IBucketViewModel.cs" />
     <Compile Include="Modules\Dashboard\DashboardView.xaml.cs">
       <DependentUpon>DashboardView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Modules\Bucket\BucketView.xaml.cs">
+    <Compile Include="Modules\Browse\BucketView.xaml.cs">
       <DependentUpon>BucketView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Bucket.cs" />
@@ -165,7 +165,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Modules\Bucket\BucketView.xaml">
+    <Page Include="Modules\Browse\BucketView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
