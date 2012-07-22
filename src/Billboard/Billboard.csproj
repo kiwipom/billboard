@@ -106,7 +106,10 @@
     <Compile Include="Common\TextBoxEx.cs" />
     <Compile Include="Converters\BooleanNegationConverter.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\DateTimeToImageConverter.cs" />
     <Compile Include="Converters\IntToVisibilityConverter.cs" />
+    <Compile Include="Converters\ObjectToVisibilityConverter.cs" />
+    <Compile Include="Converters\TaskSizeToImageConverter.cs" />
     <Compile Include="Converters\TextToVisibilityConverter.cs" />
     <Compile Include="Events\UserTaskAddedMessage.cs" />
     <Compile Include="Events\CreateUserTaskMessage.cs" />
@@ -157,13 +160,12 @@
     <Content Include="..\..\lib\sqlite\x86\sqlite3.dll">
       <Link>sqlite3.dll</Link>
     </Content>
+    <Content Include="Assets\calendar\june\23.png" />
+    <Content Include="Assets\icons\caret.png" />
     <Content Include="Assets\Logo.png" />
     <Content Include="Assets\SmallLogo.png" />
     <Content Include="Assets\SplashScreen.png" />
     <Content Include="Assets\StoreLogo.png" />
-    <Content Include="Assets\LightGray.png" />
-    <Content Include="Assets\MediumGray.png" />
-    <Content Include="Assets\DarkGray.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

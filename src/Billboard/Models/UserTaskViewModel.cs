@@ -11,7 +11,7 @@ namespace Billboard.Models
 
         public string Description { get; set; }
 
-        public DateTime TargetDate { get; set; }
+        public DateTime? TargetDate { get; set; }
 
         public string Size { get; set; }
 

@@ -15,6 +15,9 @@
                 -->
                 <ResourceDictionary Source="Common/StandardStyles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+        	<Converters:ObjectToVisibilityConverter x:Key="ObjectToVisibilityConverter"/>
+        	<Converters:TaskSizeToImageConverter x:Key="TaskSizeToImageConverter"/>
+        	<Converters:DateToImageConverter x:Key="DateToImageConverter"/>
             <Converters:TextToVisibilityConverter x:Key="TextToVisibilityConverter" />
 
             <!--  Application-specific resources  -->
@@ -94,20 +97,31 @@
                 </Setter>
             </Style>
             <DataTemplate x:Key="DashboardTaskListItemTemplate">
-                <StackPanel Margin="4,0,0,0">
-                    <TextBlock VerticalAlignment="Top"
-                               FontFamily="Segoe UI"
-                               FontSize="14.667"
-                               Text="{Binding Title}"
-                               TextWrapping="Wrap"
-                               Visibility="{Binding Text, Converter={StaticResource TextToVisibilityConverter}, RelativeSource={RelativeSource Mode=Self}}" />
-                    <TextBlock VerticalAlignment="Top"
-                               FontFamily="Segoe UI Light"
-                               FontSize="9.333"
-                               Text="{Binding Description}"
-                               TextWrapping="Wrap"
-                               Visibility="{Binding Text, Converter={StaticResource TextToVisibilityConverter}, RelativeSource={RelativeSource Mode=Self}}" />
-                </StackPanel>
+                <Grid>
+                	<Grid.ColumnDefinitions>
+                		<ColumnDefinition Width="Auto"/>
+                		<ColumnDefinition/>
+                		<ColumnDefinition Width="0*"/>
+                	</Grid.ColumnDefinitions>
+            		<StackPanel Grid.Column="1">
+            			<TextBlock VerticalAlignment="Top"
+            				FontFamily="Segoe UI"
+            				FontSize="14.667"
+            				Text="{Binding Title}"
+            				TextWrapping="Wrap"
+            				Visibility="{Binding Text, Converter={StaticResource TextToVisibilityConverter}, RelativeSource={RelativeSource Mode=Self}}" />
+            			<TextBlock VerticalAlignment="Top"
+            				FontFamily="Segoe UI Light"
+            				FontSize="9.333"
+            				Text="{Binding Description}"
+            				TextWrapping="Wrap"
+            				Visibility="{Binding Text, Converter={StaticResource TextToVisibilityConverter}, RelativeSource={RelativeSource Mode=Self}}" />
+            		</StackPanel>
+            		<StackPanel Margin="5,1,5,5" Orientation="Vertical">
+            			<Image HorizontalAlignment="Left" VerticalAlignment="Top" Source="{Binding TargetDate, Converter={StaticResource DateToImageConverter}}" Height="30" Visibility="{Binding Source, Converter={StaticResource ObjectToVisibilityConverter}, RelativeSource={RelativeSource Mode=Self}}"/>
+            			<Image HorizontalAlignment="Left" VerticalAlignment="Top" Source="{Binding Size, Converter={StaticResource TaskSizeToImageConverter}}" Height="30" Visibility="{Binding Source, Converter={StaticResource ObjectToVisibilityConverter}, RelativeSource={RelativeSource Mode=Self}}"/>
+            		</StackPanel>
+            	</Grid>
             </DataTemplate>
             <Style x:Key="AddButtonNoLabelStyle"
                    BasedOn="{StaticResource AppBarButtonStyle}"

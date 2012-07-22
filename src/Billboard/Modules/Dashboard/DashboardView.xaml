@@ -3,10 +3,11 @@
                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                         xmlns:common="using:Billboard.Common"
                         xmlns:Controls="using:Telerik.UI.Xaml.Controls"
+                        xmlns:Converters="using:Billboard.Converters"
                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                         xmlns:Design="using:Billboard.Modules.Dashboard.Design"
                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                        xmlns:Converters="using:Billboard.Converters" x:Name="pageRoot"
+                        x:Name="pageRoot"
                         d:DataContext="{d:DesignInstance Type=Design:DesignDashboardViewModel,
                                                          IsDesignTimeCreatable=True}"
                         IsTabStop="false"
@@ -26,8 +27,8 @@
                   HorizontalAlignment="Left"
                   Background="#FF5687A6">
                 <Grid>
-                    <ListBox Height="449.723"
-                             Margin="0,100.277,0,-0.277"
+                    <ListBox Height="452"
+                             Margin="0,98.277,0,-0.277"
                              HorizontalAlignment="Left"
                              VerticalAlignment="Top"
                              Background="#CC5687A6"
@@ -605,7 +606,9 @@
                   Padding="10,0,0,60"
                   SelectionMode="None"
                   Visibility="Collapsed" />
-        <Grid x:Name="addNewTaskOverlay" Background="#95646464">
+        <Grid x:Name="addNewTaskOverlay"
+              Background="#95646464"
+              Visibility="Collapsed">
             <Grid Width="600"
                   Height="646"
                   Margin="385,56,381,66"
